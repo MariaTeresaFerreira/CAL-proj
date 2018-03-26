@@ -8,7 +8,14 @@
 #ifndef SRC_PERIOD_H_
 #define SRC_PERIOD_H_
 
-
+class Period{
+	//dia inicio
+	//mes inicio
+	//ano inicio
+	// dia mes ano fim
+	//preço
+	//clima
+};
 
 
 
