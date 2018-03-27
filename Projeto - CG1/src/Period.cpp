@@ -5,49 +5,54 @@
  *      Author: Francisco Miranda; Jo�o Vaz Gama Amaral; Maria Teresa Ferreira;
  */
 
-#include 'Period.h'
+#include "Period.h"
 
-Period::Period(Date i, Date e, float p, string f, string s):
-		init(i), end(e), price(p), festivity(f), season(s) {}
-
-Period::Period(Date i, Date e, float p, string s):
-		init(i), end(e), price(p), festivity(f), season(s) {
-
-	this.festivity = "";
+Period::Period(){
+	name = "";
+	init = Date();
+	end = Date();
+	price = 0;
 }
 
-Date Period::getInit() const{
-	return this.init;
+Period::Period(std::string name, Date init, Date end, float price):
+	name(name), init(init), end(end), price(price){}
+
+Date Period::getInit(){
+	return init;
 }
 
-Date Period::getEnd() const{
-	return this.end;
+Date Period::getEnd(){
+	return end;
 }
 
 float Period::getPrice() const{
-	return this.price;
+	return price;
 }
 
-string Period::getFestivity() const{
-	return this.festivity;
+int Period::getInitDay(){
+	return init.getDay();
 }
 
-string Period::getSeason() const{
-	return this.season;
+int Period::getInitMonth(){
+	return init.getMonth();
 }
 
-void Peroid::setInit(Date d){
-	this.init = d;
+int Period::getInitYear(){
+	return init.getYear();
 }
-void Peroid::setEnd(Date d){
-	this.end = d;
+
+int Period::getEndDay(){
+	return end.getDay();
 }
-void Peroid::setPrice(float p){
-	this.price = p;
+
+int Period::getEndMonth(){
+	return end.getMonth();
 }
-void Peroid::setFestivity(string f){
-	this.festivity = f;
+
+int Period::getEndYear(){
+	return end.getYear();
 }
-void Peroid::setSeason(string s){
-	this.season = s;
+
+std::string Period::getName(){
+	return name;
 }

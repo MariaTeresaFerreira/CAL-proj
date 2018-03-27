@@ -32,8 +32,17 @@ std::vector<Accommodation*> Destiny::getAllAccommodation(){
 	return accommodation;
 }
 
+Accommodation* Destiny::cheapestAccommodation(Date d){
+	//TODO
+}
+
 std::vector<Destiny*> Destiny::getAllDestinies(){
 	return destinies;
+}
+
+int Destiny::getNumberOfDest(){
+	//TODO
+	return 0;
 }
 
 Coordinates Destiny::getCoord(){

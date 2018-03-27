@@ -8,26 +8,38 @@
 #ifndef SRC_PERIOD_H_
 #define SRC_PERIOD_H_
 
+#include "Date.h"
+
 class Period{
+	std::string name;
 	Date init;
 	Date end;
 	float price;
-	string festivity; // easter, christmas, ...
-	string season; // winter, spring, summer,  autumn
-
 public:
-	Period(Date i, Date e, float p, string f, string s);
-	Period(Date i, Date e, float p, string s);
-	getInit() const;
-	getEnd() const;
-	getPrice() const;
-	getFestivity() const;
-	getSeason() const;
-	setInit(Date d);
-	setEnd(Date d);
-	setPrice(float p);
-	setFestivity(string f);
-	setSeason(string s);
+	Period();
+	Period(std::string name, Date init, Date end, float price);
+
+	Date getInit();
+	Date getEnd();
+
+	int getInitDay();
+	int getInitMonth();
+	int getInitYear();
+
+	int getEndDay();
+	int getEndMonth();
+	int getEndYear();
+
+	float getPrice() const;
+
+	std::string getName();
+
+	friend std::ostream & operator <<(std::ostream &o, const Period &p){
+		o << "Period: " << p.name << std::endl;
+		o << "Duration: " << p.init << " until " << p.end << std::endl;
+		o << "Additional price: " << p.price << std::endl;
+		return o;
+	}
 };
 
 

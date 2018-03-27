@@ -18,7 +18,7 @@ private:
 	int ID;
 	std::string cityName;
 	std::vector<Accommodation*> accommodation;
-	std::vector<Destiny*> destinies;
+	std::vector<Destiny*> destinies; //DUVIDAS
 	Coordinates coordinates;
 public:
 	Destiny();
@@ -27,7 +27,9 @@ public:
 	int getID() const;
 	std::string getCityName() const;
 	std::vector<Accommodation*> getAllAccommodation();
+	Accommodation* cheapestAccommodation(Date d);
 	std::vector<Destiny*> getAllDestinies();
+	int getNumberOfDest();
 	Coordinates getCoord();
 
 	void setID(int id);
@@ -38,7 +40,13 @@ public:
 
 	friend std::ostream& operator <<(std::ostream& o, const Destiny &d){
 
-		o << "ID: " << d.ID << "\tCity Name: " << d.cityName;
+		o << "ID: " << d.ID << std::endl;
+		o << "City: " << d.cityName << std::endl;
+		o << "Accommodations available: " << std::endl;
+		for(size_t i = 0; i < accommodation.size(); i++){
+			o << (*d.accommodation[i]) << std::endl;
+		}
+		//Parte dos destinos ainda a definir
 		return o;
 
 	}

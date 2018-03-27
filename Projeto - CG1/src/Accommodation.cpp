@@ -7,27 +7,31 @@
 
 #include "Accommodation.h"
 
-Accommodation::Accommodation(std::string name, Period period){
-	this->name = name;
-	this->period = period
+Accommodation::Accommodation(){
+	basePrice = 0;
+	name = "";
+	periods = *(new std::vector<Period*>());
 }
 
-std::string Accommodation::getName() const{
-	return this->name;
+Accommodation::Accommodation(float price, std::string name, std::vector<Period*> periods):
+	basePrice(price), name(name), periods(periods){}
+
+float Accommodation::getBasePrice(){
+	return basePrice;
 }
 
-Accommodation::getPeriod() const{
-	return this->period;
+std::string Accommodation::getName(){
+	return name;
 }
 
-void Accommodation::setName(std::string name){
-	this->name = name;
+std::vector<Period*> Accommodation::getAllPeriods(){
+	return periods;
 }
 
-void Accommodation::setPeriod(Period period){
-	this->period = period;
+Period* Accommodation::getPeriod(Date d){
+	//TODO
 }
 
-
-
-
+float Accommodation::getPrice(Date d){
+	//TODO, DEPENDE DA ANTERIOR
+}

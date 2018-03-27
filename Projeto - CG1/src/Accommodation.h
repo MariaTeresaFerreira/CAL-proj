@@ -9,21 +9,35 @@
 #define SRC_ACCOMMODATION_H_
 
 #include "Period.h"
+#include "Libraries.h"
 
 class Accommodation{
 private:
+	float basePrice;
 	std::string name;
-	Period period;
-	//vetor com as epocas diferentes para atribuir preço
+	std::vector<Period*> periods;
 public:
-	Accomodation(std::string name, Period period);
+	Accommodation();
+	Accommodation(float price, std::string name, std::vector<Period*> periods);
 
-	std::string getName() const;
-	Period getPeriod() const;
+	float getBasePrice();
+	std::string getName();
+	std::vector<Period*> getAllPeriods();
+	Period* getPeriod(Date d);
+	float getPrice(Date d);
 
-	void setName(std::string name);
-	void setPeriod(Period period);
+	friend std::ostream & operator <<(std::ostream &o, const Accommodation &a){
+		o << "The accommodation name is: " << a.name << std::endl;
+		o << "It has a base price of: " << a.basePrice << "but will be more expensive or less, it depends because of the period." << std::endl;
+		o << "All the seasons: " << std::endl;
 
+		for(size_t i = 0; i < periods.size(); i++){
+			o << (*a.periods[i]) << std::endl;
+			o << "Total price: " << (a.basePrice + (*a.periods[i]->getPrice()));
+			o << std::endl;
+		}
+		return o;
+	}
 };
 
 
