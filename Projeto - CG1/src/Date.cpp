@@ -2,7 +2,7 @@
  * Date.c
  *
  *  Created on: 23/03/2018
- *      Author: Jo
+ *      Author: Francisco Miranda; João Vaz Gama Amaral; Maria Teresa Ferreira;
  */
 
 #include "Date.h"
