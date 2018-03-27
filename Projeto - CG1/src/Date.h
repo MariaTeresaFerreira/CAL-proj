@@ -2,7 +2,7 @@
  * Date.h
  *
  *  Created on: 23/03/2018
- *      Author: Jo
+ *      Author: Francisco Miranda; João Vaz Gama Amaral; Maria Teresa Ferreira;
  */
 
 #ifndef SRC_DATE_H_
@@ -32,7 +32,7 @@ public:
 	void setHour(int h);
 
 	friend bool operator ==(const Date& d, const Date& d1){
-		if(d.day == d1.getDay() && d.month == d1.getMonth() && d.year == d1.getYear());
+		if(d.day == d1.getDay() && d.month == d1.getMonth() && d.year == d1.getYear())
 			return true;
 		return false;
 	}

@@ -2,7 +2,7 @@
  * Libraries.h
  *
  *  Created on: 26/03/2018
- *      Author: Jo
+ *      Author: Francisco Miranda; João Vaz Gama Amaral; Maria Teresa Ferreira;
  */
 
 #ifndef SRC_LIBRARIES_H_

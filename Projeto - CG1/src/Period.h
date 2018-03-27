@@ -2,7 +2,7 @@
  * Period.h
  *
  *  Created on: 23/03/2018
- *      Author: Jo
+ *      Author: Francisco Miranda; João Vaz Gama Amaral; Maria Teresa Ferreira;
  */
 
 #ifndef SRC_PERIOD_H_
