@@ -12,16 +12,16 @@
 
 class Accommodation{
 private:
-	string name;
+	std::string name;
 	Period period;
 	//vetor com as epocas diferentes para atribuir preço
 public:
-	Accomodation(string name, Period period);
+	Accomodation(std::string name, Period period);
 
-	string getName();
-	Period getPeriod();
+	std::string getName() const;
+	Period getPeriod() const;
 
-	void setName(string name);
+	void setName(std::string name);
 	void setPeriod(Period period);
 
 };

@@ -7,20 +7,20 @@
 
 #include "Accommodation.h"
 
-Accommodation::Accommodation(string name, Period period){
+Accommodation::Accommodation(std::string name, Period period){
 	this->name = name;
 	this->period = period
 }
 
-string Accommodation::getName(){
+std::string Accommodation::getName() const{
 	return this->name;
 }
 
-vector Accommodation::getPeriod(){
+Accommodation::getPeriod() const{
 	return this->period;
 }
 
-void Accommodation::setName(string name){
+void Accommodation::setName(std::string name){
 	this->name = name;
 }
 
