@@ -8,11 +8,40 @@
 #ifndef SRC_DESTINY_H_
 #define SRC_DESTINY_H_
 
+#include "Libraries.h"
+#include "Accommodation.h"
+#include "Coordinates.h"
+
 class Destiny{
-	//ID para ser mais fácil a procura?
-	//string nome da cidade
-	//vetor com todos os alojamentos
-	//vetor com outros destinos possieis a partir deste
+
+private:
+	int ID;
+	std::string cityName;
+	std::vector<Accommodation*> accommodation;
+	std::vector<Destiny*> destinies;
+	Coordinates coordinates;
+public:
+	Destiny();
+	Destiny(int ID, std::string cityName, std::vector<Accommodation*> accommodation, std::vector<Destiny*> destinies, Coordinates coordinates);
+
+	int getID() const;
+	std::string getCityName() const;
+	std::vector<Accommodation*> getAllAccommodation();
+	std::vector<Destiny*> getAllDestinies();
+	Coordinates getCoord();
+
+	void setID(int id);
+	void setCityName(std::string name);
+	void setCoordinates(Coordinates coord);
+
+	bool operator ==(const Destiny& d);
+
+	friend std::ostream& operator <<(std::ostream& o, const Destiny &d){
+
+		o << "ID: " << d.ID << "\tCity Name: " << d.cityName;
+		return o;
+
+	}
 };
 
 
