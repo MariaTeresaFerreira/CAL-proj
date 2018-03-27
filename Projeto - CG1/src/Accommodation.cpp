@@ -7,25 +7,25 @@
 
 #include "Accommodation.h"
 
-Accommodation::Accommodation(string name, vector<int> prices){
-	this->prices = prices;
+Accommodation::Accommodation(string name, Period period){
 	this->name = name;
+	this->period = period
 }
 
 string Accommodation::getName(){
 	return this->name;
 }
 
-vector Accommodation::getPrices(){
-	return this->prices;
+vector Accommodation::getPeriod(){
+	return this->period;
 }
 
 void Accommodation::setName(string name){
 	this->name = name;
 }
 
-void Accommodation::setPrice(int position, int price){
-	this.prices.at(position) = price;
+void Accommodation::setPeriod(Period period){
+	this->period = period;
 }
 
 

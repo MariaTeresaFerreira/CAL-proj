@@ -8,19 +8,21 @@
 #ifndef SRC_ACCOMMODATION_H_
 #define SRC_ACCOMMODATION_H_
 
+#include "Period.h"
+
 class Accommodation{
 private:
 	string name;
-	vector<int> prices;
+	Period period;
 	//vetor com as epocas diferentes para atribuir preço
 public:
-	Accomodation(string name, vector<int> prices);
+	Accomodation(string name, Period period);
 
 	string getName();
-	vector getPrices();
+	Period getPeriod();
 
 	void setName(string name);
-	void setPrice(int position, int price);
+	void setPeriod(Period period);
 
 };
 
