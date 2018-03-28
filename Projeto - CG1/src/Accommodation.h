@@ -31,9 +31,9 @@ public:
 		o << "It has a base price of: " << a.basePrice << "but will be more expensive or less, it depends because of the period." << std::endl;
 		o << "All the seasons: " << std::endl;
 
-		for(size_t i = 0; i < periods.size(); i++){
+		for(size_t i = 0; i < a.periods.size(); i++){
 			o << (*a.periods[i]) << std::endl;
-			o << "Total price: " << (a.basePrice + (*a.periods[i]->getPrice()));
+			o << "Additional price: " << (*a.periods[i]).getPrice();
 			o << std::endl;
 		}
 		return o;

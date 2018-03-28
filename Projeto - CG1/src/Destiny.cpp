@@ -5,14 +5,15 @@
  *      Author: Francisco Miranda; João Vaz Gama Amaral; Maria Teresa Ferreira;
  */
 #include "Destiny.h"
+#define MAX_PRICE 999999999
 
 Destiny::Destiny(): ID(0), cityName(""){
 	accommodation = *(new std::vector<Accommodation*>());
-	destinies = *(new std::vector<Destiny*>());
+	destinies = *(new std::vector<PossibleDestinies*>());
 	coordinates = Coordinates();
 }
 
-Destiny::Destiny(int ID, std::string cityName, std::vector<Accommodation*> accommodation, std::vector<Destiny*> destinies, Coordinates coordinates){
+Destiny::Destiny(int ID, std::string cityName, std::vector<Accommodation*> accommodation, std::vector<PossibleDestinies*> destinies, Coordinates coordinates){
 	this->ID = ID;
 	this->cityName = cityName;
 	this->accommodation = accommodation;
@@ -33,17 +34,62 @@ std::vector<Accommodation*> Destiny::getAllAccommodation(){
 }
 
 Accommodation* Destiny::cheapestAccommodation(Date d){
-	//TODO
+
+	std::vector<Accommodation*>::iterator it = accommodation.begin();
+
+	Accommodation *place = new Accommodation();
+	int lowest_price = MAX_PRICE;
+
+	for(; it!=accommodation.end(); it++){
+
+		float price = ((*it)->getBasePrice() + (*it)->getPrice(d));
+
+		if(price < lowest_price){
+
+			lowest_price = price;
+
+			place = (*it);
+
+		}
+
+	}
+	return place;
 }
 
-std::vector<Destiny*> Destiny::getAllDestinies(){
+std::vector<PossibleDestinies*> Destiny::getAllDestinies(){
 	return destinies;
 }
 
 int Destiny::getNumberOfDest(){
-	//TODO
-	return 0;
+	return this->destinies.size();
 }
+
+float Destiny::getDestinyTripPrice(int id){
+
+	std::vector<PossibleDestinies*>::iterator it = destinies.begin();
+
+	for(; it != destinies.end(); it++){
+		int tempID = (*it)->getID();
+		if(tempID == id){
+			return (*it)->getPrice();
+		}
+	}
+	return -1;
+}
+
+float Destiny::getDestinyTripTime(int id){
+
+	std::vector<PossibleDestinies*>::iterator it = destinies.begin();
+
+	for(; it != destinies.end(); it++){
+		int tempID = (*it)->getID();
+		if(tempID == id){
+			return (*it)->getTime();
+		}
+	}
+	return -1;
+}
+
 
 Coordinates Destiny::getCoord(){
 	return coordinates;

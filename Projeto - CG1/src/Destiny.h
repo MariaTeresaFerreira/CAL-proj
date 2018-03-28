@@ -11,6 +11,7 @@
 #include "Libraries.h"
 #include "Accommodation.h"
 #include "Coordinates.h"
+#include "PossibleDestinies.h"
 
 class Destiny{
 
@@ -18,19 +19,22 @@ private:
 	int ID;
 	std::string cityName;
 	std::vector<Accommodation*> accommodation;
-	std::vector<Destiny*> destinies; //DUVIDAS
+	std::vector<PossibleDestinies*> destinies;
 	Coordinates coordinates;
 public:
 	Destiny();
-	Destiny(int ID, std::string cityName, std::vector<Accommodation*> accommodation, std::vector<Destiny*> destinies, Coordinates coordinates);
+	Destiny(int ID, std::string cityName, std::vector<Accommodation*> accommodation, std::vector<PossibleDestinies*> destinies, Coordinates coordinates);
 
 	int getID() const;
 	std::string getCityName() const;
 	std::vector<Accommodation*> getAllAccommodation();
 	Accommodation* cheapestAccommodation(Date d);
-	std::vector<Destiny*> getAllDestinies();
-	int getNumberOfDest();
 	Coordinates getCoord();
+
+	std::vector<PossibleDestinies*> getAllDestinies();
+	int getNumberOfDest();
+	float getDestinyTripPrice(int id);
+	float getDestinyTripTime(int id);
 
 	void setID(int id);
 	void setCityName(std::string name);
@@ -43,7 +47,7 @@ public:
 		o << "ID: " << d.ID << std::endl;
 		o << "City: " << d.cityName << std::endl;
 		o << "Accommodations available: " << std::endl;
-		for(size_t i = 0; i < accommodation.size(); i++){
+		for(size_t i = 0; i < d.accommodation.size(); i++){
 			o << (*d.accommodation[i]) << std::endl;
 		}
 		//Parte dos destinos ainda a definir
