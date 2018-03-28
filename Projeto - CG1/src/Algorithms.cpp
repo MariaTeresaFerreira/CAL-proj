@@ -6,11 +6,11 @@
  */
 #include "Algorithms.h"
 
-void bubbleSort(std::vector<Destiny*>& destiny_aux){
+void bubbleSort(std::vector<Destiny>& destiny_aux){
 	for(unsigned int j = destiny_aux.size()-1; j > 0; j--){
 		bool change = false;
 		for(unsigned int i = 0; i < j; i++)
-			if(destiny_aux[i+1]->getID() < destiny_aux[i]->getID()){
+			if(destiny_aux[i+1].getID() < destiny_aux[i].getID()){
 				std::swap(destiny_aux[i], destiny_aux[i+1]);
 				change = true;
 			}
@@ -18,15 +18,15 @@ void bubbleSort(std::vector<Destiny*>& destiny_aux){
 	}
 }
 
-void selectionSort(std::vector<Destiny*> &d_aux){
+void selectionSort(std::vector<Destiny> &d_aux){
 	unsigned int j, i;
 	std::vector<Destiny*>::iterator it;
 
 	for(i = 0; i < d_aux.size(); i++){
 
 			for(j = i+1; j < d_aux.size(); j++){
-					if(d_aux[j]->getCityName() < d_aux[i]->getCityName()){
-						Destiny* d = d_aux[i];
+					if(d_aux[j].getCityName() < d_aux[i].getCityName()){
+						Destiny d = d_aux[i];
 						d_aux[i] = d_aux[j];
 						d_aux[j] = d;
 					}
@@ -34,7 +34,7 @@ void selectionSort(std::vector<Destiny*> &d_aux){
 	}
 }
 
-int binarySearch(const std::vector<Destiny*> &d, int x)
+int binarySearch(const std::vector<Destiny> &d, int x)
 {
 	int left = 0, right = d.size() - 1;
 
@@ -42,9 +42,9 @@ int binarySearch(const std::vector<Destiny*> &d, int x)
 	{
 		int middle = (left + right) / 2;
 
-		if (d[middle]->getID() < x)
+		if (d[middle].getID() < x)
 			left = middle + 1;
-		else if (x < d[middle]->getID())
+		else if (x < d[middle].getID())
 			right = middle-1;
 		else
 			return middle;
@@ -52,7 +52,7 @@ int binarySearch(const std::vector<Destiny*> &d, int x)
 	return -1;
 }
 
-int binarySearch(const std::vector<Destiny*> &d, std::string x)
+int binarySearch(const std::vector<Destiny> &d, std::string x)
 {
 	int left = 0, right = d.size() - 1;
 
@@ -60,9 +60,9 @@ int binarySearch(const std::vector<Destiny*> &d, std::string x)
 	{
 		int middle = (left + right) / 2;
 
-		if (d[middle]->getCityName() < x)
+		if (d[middle].getCityName() < x)
 			left = middle + 1;
-		else if (x < d[middle]->getCityName())
+		else if (x < d[middle].getCityName())
 			right = middle-1;
 		else
 			return middle;
