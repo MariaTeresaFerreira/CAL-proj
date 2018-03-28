@@ -55,3 +55,26 @@ void Date::setHour(int h){
 void Date::setMinute(int m){
 	minute = m;
 }
+
+//Estes algoritmos de comparação de datas podem ser melhorados e optimizados.
+//REMINDER: update no fim.
+
+bool Date::operator >=(const Date& d){
+	if(this->year > d.getYear()) return true;
+
+	if(this->month > d.getMonth()) return true;
+
+	if(this->day >= d.getDay()) return true;
+
+	return false;
+}
+
+bool Date::operator <=(const Date& d){
+	if(this->year < d.getYear()) return true;
+
+	if(this->month < d.getMonth()) return true;
+
+	if(this->day <= d.getDay()) return true;
+
+	return false;
+}

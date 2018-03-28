@@ -30,6 +30,8 @@ public:
 	void setYear(int y);
 	void setMinute(int min);
 	void setHour(int h);
+	bool operator >=(const Date& d);
+	bool operator <=(const Date& d);
 
 	friend bool operator ==(const Date& d, const Date& d1){
 		if(d.day == d1.getDay() && d.month == d1.getMonth() && d.year == d1.getYear())

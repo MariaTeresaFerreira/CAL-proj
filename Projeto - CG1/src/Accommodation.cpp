@@ -29,9 +29,31 @@ std::vector<Period*> Accommodation::getAllPeriods(){
 }
 
 Period* Accommodation::getPeriod(Date d){
-	//TODO
+	std::vector<Period*>::iterator it = periods.begin();
+
+	Period *p = new Period();
+
+	for(; it != periods.end(); it++){
+
+		if(d >= (*it)->getInit() && d <= (*it)->getEnd()){
+			p = (*it);
+			return p;
+		}
+	}
+	std::cout << "No special period in that date." << std::endl;
+	return p;
 }
 
 float Accommodation::getPrice(Date d){
-	//TODO, DEPENDE DA ANTERIOR
+
+	float price = this->basePrice;
+
+	std::vector<Period*>::iterator it = periods.begin();
+
+	Period *p = getPeriod(d);
+
+	price += p->getPrice();
+
+	return price;
+
 }
