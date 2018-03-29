@@ -12,5 +12,6 @@
 #include <string.h>
 #include <vector>
 #include <sstream>
+#include <limits>
 
 #endif /* SRC_LIBRARIES_H_ */
