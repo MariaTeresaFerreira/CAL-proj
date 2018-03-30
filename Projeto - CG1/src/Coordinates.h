@@ -21,7 +21,7 @@ public:
 	void setX(int x);
 	void setY(int y);
 	void setCoord(int x, int y);
-	//Função para imprimir coord?
+
 };
 
 

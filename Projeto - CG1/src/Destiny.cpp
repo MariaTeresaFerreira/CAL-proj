@@ -6,6 +6,7 @@
  */
 #include "Destiny.h"
 #define MAX_PRICE 999999999
+int Destiny::ultID = 1;
 
 Destiny::Destiny(): ID(0), cityName(""){
 	accommodation = *(new std::vector<Accommodation*>());
@@ -13,12 +14,22 @@ Destiny::Destiny(): ID(0), cityName(""){
 	coordinates = Coordinates();
 }
 
-Destiny::Destiny(int ID, std::string cityName, std::vector<Accommodation*> accommodation, std::vector<PossibleDestinies*> destinies, Coordinates coordinates){
+Destiny::Destiny(int ID, std::string cityName, std::vector<Accommodation*> accommodation, std::vector<PossibleDestinies*> destinies, Coordinates *coordinates){
 	this->ID = ID;
 	this->cityName = cityName;
 	this->accommodation = accommodation;
 	this->destinies = destinies;
-	this->coordinates = coordinates;
+	this->coordinates.setX(coordinates->getX());
+	this->coordinates.setY(coordinates->getY());
+}
+
+Destiny::Destiny(std::string cityName, Coordinates *coordinates){
+	this->ID = ultID++;
+	this->cityName = cityName;
+	this->accommodation = *(new std::vector<Accommodation*>());
+	this->destinies = *(new std::vector<PossibleDestinies*>());
+	this->coordinates.setX(coordinates->getX());
+	this->coordinates.setY(coordinates->getY());
 }
 
 int Destiny::getID() const{

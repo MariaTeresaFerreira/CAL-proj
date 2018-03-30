@@ -25,3 +25,7 @@ std::vector<Destiny*> Agency::getDestinies() const{
 void Agency::addClient(Client* c){
 	this->clients.push_back(c);
 }
+
+void Agency::addDestiny(Destiny* d){
+	this->destinies.push_back(d);
+}

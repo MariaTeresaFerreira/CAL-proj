@@ -23,6 +23,7 @@ public:
 	std::vector<Destiny*> getDestinies() const;
 
 	void addClient(Client* c);
+	void addDestiny(Destiny* d);
 };
 
 

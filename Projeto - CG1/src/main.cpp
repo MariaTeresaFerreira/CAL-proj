@@ -7,14 +7,16 @@
 
 #include "Libraries.h"
 #include "Interface.h"
-//#include "Import.h"
+#include "ImportInfo.h"
+#include "ExportInfo.h"
 
 void import_info(Agency& agency){
-	//importa as informações dos ficheiros
+	importClients(agency);
+	importCities(agency);
 }
 
 void export_info(Agency& agency){
-	//escreve as informações
+	exportClients(agency);
 	std::cout << "Program terminated, we wish you a good trip.\t" << std::endl;
 }
 
@@ -25,9 +27,9 @@ int main(){
 	std::cout << "Welcome to MIEIC flight agency!\n" << std::endl;
 
 	//gv = new GraphViewer(1680, 1050, "");
-	//import_info(agency);
+	import_info(agency);
 	initMenu(agency);
-	//terminate_program
+	export_info(agency);
 	//gv->closeWindow();
 
 	return 0;

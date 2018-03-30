@@ -110,11 +110,15 @@ void Vertex<T>::setInfo(T info) {
 template <class T>
 class Edge {
 	Vertex<T> * dest;      // destination vertex
+	Vertex<T> * orig;
 	double weight;         // edge weight
 public:
 	Edge(Vertex<T> *d, double w);
 	friend class Graph<T>;
 	friend class Vertex<T>;
+	double getWeight() const{
+		return weight;
+	}
 };
 
 template <class T>
@@ -130,13 +134,17 @@ public:
 	bool removeVertex(const T &in);
 	bool addEdge(const T &sourc, const T &dest, double w);
 	bool removeEdge(const T &sourc, const T &dest);
+	bool isDAG() const;
+
+
 	vector<T> dfs() const;
 	vector<T> bfs(const T &source) const;
 	vector<T> topsort() const;
-	int maxNewChildren(const T &source, T &inf) const;
-	bool isDAG() const;
-	void unweightedShortestPath(const T &orig);
 	vector<T> getPath(const T &origin, const T &dest);
+
+
+	int maxNewChildren(const T &source, T &inf) const;
+	void unweightedShortestPath(const T &orig);
 	void dijkstraShortestPath(const T &origin);
 };
 

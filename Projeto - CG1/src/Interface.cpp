@@ -18,13 +18,13 @@ void initMenu(Agency& agency){
 			exit = clientsMenu(agency);
 			break;
 		case 2:
-			//exit = showMap(agency);
+			exit = mapMenu(agency);
 			break;
 		case 3:
-			//exit = flightMenu(agency);
+			exit = flightMenu(agency);
 			break;
 		case 4:
-			//exit = destiniesMenu(agency);
+			exit = destiniesMenu(agency);
 			break;
 		case -1:
 			exit = true;
@@ -40,12 +40,13 @@ int showMenu(Agency& agency){
 	std::cout << "\t 1 - Clients" << std::endl;
 	std::cout << "\t 2 - Open Map" << std::endl;
 	std::cout << "\t 3 - Choose your trip" << std::endl;
-	std::cout << "\t 4 - Destinies available form your city" << std::endl;
+	std::cout << "\t 4 - Operating cities and possible destinies" << std::endl;
 	std::cout << "\t-1 - Quit" << std::endl;
 
 	std::cin >> option;
 	return option;
 }
+
 
 
 
@@ -192,13 +193,194 @@ int checkClient(Agency& agency){
 
 }
 
-
-
-
-
-
 //OPEN MAP INTERFACE
+
+bool mapMenu(Agency& agency){
+	int option;
+
+	while(option != -1){
+		std::cout <<"\n\tMAP:" << std::endl;
+		std::cout << "\t1 - Open full map" << std::endl;
+		std::cout << "\t0 - Go back" << std::endl;
+		std::cout << "\t-1 - Exit program.\n" << std::endl;
+
+		int instruction;
+
+		std::cout << "\nPlease enter an option: ";
+		std::cin >> option;
+
+		switch(option){
+		case 1:
+			instruction = openMap(agency);
+			break;
+		case 0:
+			return false;
+		case -1:
+			instruction = -1;
+			break;
+		default:
+			std::cout << "\nPlease insert a valid option." << std::endl;
+			break;
+		}
+		if(instruction == -1) return true;
+		else if(instruction ==0) continue;
+	}
+	return false;
+}
+
+
+int openMap(Agency& agency){
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //FLIGHT INTERFACE
 
+bool flightMenu(Agency& agency){
+	int option;
+
+	while(option != -1){
+		std::cout <<"\n\tMAP:\nWhat do you wish to optimize?" << std::endl;
+		std::cout << "\t 1 - Time" << std::endl;
+		std::cout << "\t 2 - Cost" << std::endl;
+		std::cout << "\t 0 - Go back" << std::endl;
+		std::cout << "\t-1 - Exit program.\n" << std::endl;
+
+		int instruction;
+
+		switch(option){
+		case 1:
+			//instruction = flightReservation1(agency);
+			break;
+		case 2:
+			//instruction = flightReservation2(agency);
+			break;
+		case 0:
+			return false;
+		case -1:
+			instruction = -1;
+		default:
+			std::cout << "Insert a valid option." << std::endl;
+		}
+
+		if(instruction == -1) return true;
+		else if(instruction ==0) continue;
+	}
+	return false;
+}
+
+int flightReservation1(Agency& agency){
+	return 0;
+}
+int flightReservation2(Agency& agency){
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //DESTINIES AVAILABLE INTERFACE
+
+bool destiniesMenu(Agency& agency){
+	int option;
+
+	while(option != -1){
+		std::cout <<"\n\tDESTINIES\n" << std::endl;
+		std::cout << "\t1 - Check operating cities" << std::endl;
+		std::cout << "\t2 - Check possible destinies from a city" << std::endl;
+
+		std::cout << "\t0 - Go back" << std::endl;
+		std::cout << "\t-1 - Exit program.\n" << std::endl;
+
+		int instruction;
+
+		std::cout << "\nPlease enter an option: ";
+		std::cin >> option;
+
+		switch(option){
+		case 1:
+			instruction = checkOperatingCities(agency);
+			break;
+		case 2:
+			instruction = checkPossibleDestinies(agency);
+			break;
+		case 0:
+			return false;
+		case -1:
+			instruction = -1;
+			break;
+		default:
+			std::cout << "\nPlease insert a valid option." << std::endl;
+			break;
+		}
+		if(instruction == -1) return true;
+		else if(instruction ==0) continue;
+	}
+	return false;
+}
+
+int checkOperatingCities(Agency& agency){
+
+	for(unsigned int i = 0; i < agency.getDestinies().size(); i++){
+		std::cout << *agency.getDestinies()[i] << std::endl;
+	}
+	return 0;
+
+}
+
+int checkPossibleDestinies(Agency& agency){
+	return 0;
+}
+
