@@ -6,7 +6,7 @@
  */
 #include "Algorithms.h"
 
-void bubbleSort(std::vector<Destiny>& destiny_aux){
+void bubbleSortD(std::vector<Destiny>& destiny_aux){
 	for(unsigned int j = destiny_aux.size()-1; j > 0; j--){
 		bool change = false;
 		for(unsigned int i = 0; i < j; i++)
@@ -18,7 +18,7 @@ void bubbleSort(std::vector<Destiny>& destiny_aux){
 	}
 }
 
-void selectionSort(std::vector<Destiny> &d_aux){
+void selectionSortD(std::vector<Destiny> &d_aux){
 	unsigned int j, i;
 	std::vector<Destiny*>::iterator it;
 
@@ -34,7 +34,7 @@ void selectionSort(std::vector<Destiny> &d_aux){
 	}
 }
 
-int binarySearch(const std::vector<Destiny> &d, int x)
+int binarySearchD(const std::vector<Destiny> &d, int x)
 {
 	int left = 0, right = d.size() - 1;
 
@@ -52,7 +52,7 @@ int binarySearch(const std::vector<Destiny> &d, int x)
 	return -1;
 }
 
-int binarySearch(const std::vector<Destiny> &d, std::string x)
+int binarySearchD(const std::vector<Destiny> &d, std::string x)
 {
 	int left = 0, right = d.size() - 1;
 
@@ -63,6 +63,42 @@ int binarySearch(const std::vector<Destiny> &d, std::string x)
 		if (d[middle].getCityName() < x)
 			left = middle + 1;
 		else if (x < d[middle].getCityName())
+			right = middle-1;
+		else
+			return middle;
+	}
+	return -1;
+}
+
+int binarySearchC(const std::vector<Client*> &v, int x)
+{
+	int left = 0, right = v.size() - 1;
+
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+
+		if (v[middle]->getID() < x)
+			left = middle + 1;
+		else if (x < v[middle]->getID())
+			right = middle-1;
+		else
+			return middle;
+	}
+	return -1;
+}
+
+int binarySearchC(const std::vector<Client*> &v, std::string x)
+{
+	int left = 0, right = v.size() - 1;
+
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+
+		if (v[middle]->getName() < x)
+			left = middle + 1;
+		else if (x < v[middle]->getName())
 			right = middle-1;
 		else
 			return middle;

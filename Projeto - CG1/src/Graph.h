@@ -24,6 +24,7 @@ class Vertex {
 	bool visited;          // auxiliary field used by dfs and bfs
 	int indegree;          // auxiliary field used by topsort
 	bool processing;       // auxiliary field used by isDAG
+
 	double dist = 0;
 	Vertex<T> *path = NULL;
 	int queueIndex = 0; 		// required by MutablePriorityQueue
@@ -36,12 +37,20 @@ public:
 	friend class Graph<T>;
 
 	bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue
+
 	T getInfo() const;
+	T* getInfoPointer(){
+		return &info;
+	}
+
+	int getIndegree() const;
 	double getDist() const;
 	Vertex *getPath() const;
 	friend class MutablePriorityQueue<Vertex<T>>;
+
 	void setDist(double d);
 	void setPath(Vertex<T> *vert);
+	void setInfo(T info);
 };
 
 /*
@@ -78,6 +87,11 @@ Vertex<T> *Vertex<T>::getPath() const {
 }
 
 template <class T>
+int Vertex<T>::getIndegree() const{
+	return this->indegree;
+}
+
+template <class T>
 void Vertex<T>::setDist(double d) {
 	this->dist = d;
 }
@@ -85,6 +99,11 @@ void Vertex<T>::setDist(double d) {
 template <class T>
 void Vertex<T>::setPath(Vertex<T> *vert){
 	this->path = vert;
+}
+
+template <class T>
+void Vertex<T>::setInfo(T info) {
+	this->info = info;
 }
 
 
