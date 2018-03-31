@@ -1,0 +1,85 @@
+Londres
+14428,6732
+5
+The Exhibitionist Hotel
+4
+Verao
+21-06/22-09
+100
+Natal e Passagem de Ano
+23-12/2-01
+140
+Outono
+3-09/20/12
+80
+Resto do Ano
+3-01/20-06
+80
+Paddingtob Balcony View
+4
+Verao
+21-06/22-09
+200
+Natal e Passagem de Ano
+23-12/2-01
+180
+Outono
+3-09/20/12
+100
+Resto do Ano
+3-01/20-06
+100
+Drayson Mews
+4
+Verao
+21-06/22-09
+250
+Natal e Passagem de Ano
+23-12/2-01
+200
+Outono
+3-09/20/12
+140
+Resto do Ano
+3-01/20-06
+120
+Ace Hotel London Shoreditch
+4
+Verao
+21-06/22-09
+280
+Natal e Passagem de Ano
+23-12/2-01
+250
+Outono
+3-09/20/12
+150
+Resto do Ano
+3-01/20-06
+150
+Montcalm Royal London House
+4
+Verao
+21-06/22-09
+280
+Natal e Passagem de Ano
+23-12/2-01
+250
+Outono
+3-09/20/12
+150
+Resto do Ano
+3-01/20-06
+150
+1
+200
+360
+2
+400
+310
+3
+100
+220
+4
+90
+130
