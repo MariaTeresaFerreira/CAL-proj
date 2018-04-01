@@ -1,4 +1,0 @@
-Porto/500/300
-Lisboa/800/400
-Barcelona/950/890
-Madrid/568/849
