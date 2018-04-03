@@ -10,14 +10,11 @@
 #include "Libraries.h"
 #include "Algorithms.h"
 #include "Interface.h"
-#include <fstream>
-#include <ctime>
-#include <cstdio>
+#include "Graph.h"
+#include "graphviewer.h"
 
 void importClients(Agency& agency);
 
 void importCities(Agency& agency);
-
-
 
 #endif /* IMPORTINFO_H_ */

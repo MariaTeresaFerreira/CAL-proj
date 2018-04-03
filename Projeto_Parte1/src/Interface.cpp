@@ -44,6 +44,7 @@ int showMenu(Agency& agency){
 	std::cout << "\t 3 - Choose your trip" << std::endl;
 	std::cout << "\t 4 - Operating cities and possible destinies" << std::endl;
 	std::cout << "\t-1 - Quit" << std::endl;
+	std::cout << "Please insert a valid option:";
 
 	std::cin >> option;
 	return option;
@@ -237,15 +238,15 @@ int openMap(Agency& agency){
 	return false;
 }
 
-void updateMap(Agency& agency){ //FUNÇÃO QUE USO PARA CONSTRUIR O GRAPHO
+void updateMap(Agency& agency){ //FUNÇÃO QUE USO PARA CONSTRUIR O GRAPHO, graphviewer
 	int id, coordx, coordy;
 	std::string name;
 
 	for(size_t i = 0; i < agency.getDestinies().size(); i++){
-		id = agency.getDestinies()[i]->getID();
-		coordx = agency.getDestinies()[i]->getCoord().getX();
-		coordy = agency.getDestinies()[i]->getCoord().getY();
-		name = agency.getDestinies()[i]->getCityName();
+		id = agency.getDestinies()[i].getID();
+		coordx = agency.getDestinies()[i].getCoord().getX();
+		coordy = agency.getDestinies()[i].getCoord().getY();
+		name = agency.getDestinies()[i].getCityName();
 
 		gv->addNode(id, coordx, coordy);
 		gv->setVertexLabel(id, name);
@@ -256,10 +257,10 @@ void updateMap(Agency& agency){ //FUNÇÃO QUE USO PARA CONSTRUIR O GRAPHO
 
 	 for(size_t i = 0; i < agency.getDestinies().size(); i++){
 
-			 for(size_t k = 0; k < agency.getDestinies()[i]->getNumberOfDest(); k++){
+			 for(size_t k = 0; k < agency.getDestinies()[i].getNumberOfDest(); k++){
 
-				 int destinyID = agency.getDestinies()[i]->getAllDestinies()[k]->getID();
-				 gv->addEdge(idDest, agency.getDestinies()[i]->getID(), destinyID, EdgeType::DIRECTED);
+				 int destinyID = agency.getDestinies()[i].getAllDestinies()[k]->getID();
+				 gv->addEdge(idDest, agency.getDestinies()[i].getID(), destinyID, EdgeType::DIRECTED);
 
 				 idDest++;
 			 }
@@ -289,15 +290,16 @@ bool flightMenu(Agency& agency){
 
 		switch(option){
 		case 1:
-			//instruction = flightReservation1(agency);
+			instruction = flightReservation1(agency);
 			break;
 		case 2:
-			//instruction = flightReservation2(agency);
+			instruction = flightReservation2(agency);
 			break;
 		case 0:
 			return false;
 		case -1:
 			instruction = -1;
+			break;
 		default:
 			std::cout << "Insert a valid option." << std::endl;
 		}
@@ -309,13 +311,13 @@ bool flightMenu(Agency& agency){
 }
 
 int flightReservation1(Agency& agency){
+
 	return 0;
 }
 int flightReservation2(Agency& agency){
+
 	return 0;
 }
-
-
 
 
 
@@ -393,7 +395,7 @@ int checkOperatingCities(Agency& agency){
 	std::cout << "These are the Cities that have our services:" << std::endl;
 
 	for(unsigned int i = 0; i < agency.getDestinies().size(); i++){
-		std::cout << *agency.getDestinies()[i] << std::endl;
+		std::cout << agency.getDestinies()[i] << std::endl;
 	}
 	return 0;
 
@@ -411,16 +413,16 @@ int checkPossibleDestinies(Agency& agency){
 	int index;
 
 	for(unsigned int j = 0; j < agency.getDestinies().size(); j++){
-		if(agency.getDestinies()[j]->getCityName() == city){
+		if(agency.getDestinies()[j].getCityName() == city){
 			index = j;
 			break;
 		}
 	}
 
-	unsigned int size = agency.getDestinies()[index]->getAllDestinies().size();
+	unsigned int size = agency.getDestinies()[index].getAllDestinies().size();
 
 	for(unsigned int i = 0; i < size; i++){
-		std::cout << *agency.getDestinies()[index]->getAllDestinies()[i] << std::endl;
+		std::cout << *agency.getDestinies()[index].getAllDestinies()[i] << std::endl;
 	}
 	return 0;
 }
@@ -435,14 +437,14 @@ int checkAccommodations(Agency& agency){
 	int index;
 
 	for(unsigned int j = 0; j < agency.getDestinies().size(); j++){
-		if(agency.getDestinies()[j]->getCityName() == city){
+		if(agency.getDestinies()[j].getCityName() == city){
 			index = j;
 			break;
 		}
 	}
 
-	for(unsigned int i = 0; i < agency.getDestinies()[index]->getAllAccommodation().size(); i++){
-		std::cout << *agency.getDestinies()[index]->getAllAccommodation()[i] << std::endl;
+	for(unsigned int i = 0; i < agency.getDestinies()[index].getAllAccommodation().size(); i++){
+		std::cout << *agency.getDestinies()[index].getAllAccommodation()[i] << std::endl;
 	}
 
 	return 0;

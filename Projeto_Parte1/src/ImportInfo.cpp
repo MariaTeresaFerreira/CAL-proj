@@ -7,9 +7,6 @@
 
 #include "ImportInfo.h"
 
-//Graph<Destiny> graph;
-//GraphViewer *gv;
-
 void importClients(Agency& agency){
 
 	std::ifstream clientsFile;
@@ -142,11 +139,11 @@ void importCities(Agency& agency){
 				PossibleDestinies *p = new PossibleDestinies(ID, price, time);
 				pDestinies.push_back(p);
 			}
-			Destiny *destiny = new Destiny(nameCity, accommodations, pDestinies, cords);
+			Destiny destiny = Destiny(nameCity, accommodations, pDestinies, cords);
 			agency.addDestiny(destiny);
-			/*
-			 * graph.addVertex(cidade);
-			 */
+
+			agency.getGraph().addVertex(destiny);
+
 			in.close();
 		}
 		counter++;
@@ -170,5 +167,3 @@ void importCities(Agency& agency){
 		}
 	 */
 }
-
-

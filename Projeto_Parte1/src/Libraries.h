@@ -17,5 +17,8 @@
 #include <thread>
 #include <stdlib.h>
 #include <cmath>
+#include <fstream>
+#include <ctime>
+#include <cstdio>
 
 #endif /* SRC_LIBRARIES_H_ */

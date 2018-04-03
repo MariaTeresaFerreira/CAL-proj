@@ -1,5 +1,5 @@
 Paris
-80,50
+650,150
 4
 Hotel Regina Louvre
 4

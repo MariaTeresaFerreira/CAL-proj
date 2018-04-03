@@ -13,19 +13,23 @@
 #include "Destiny.h"
 #include "graphviewer.h"
 #include "Graph.h"
+#include "connection.h"
+#include "edgetype.h"
 
 class Agency{
 	std::string name;
 	std::vector<Client*> clients;
-	std::vector<Destiny*> destinies; //Vector with operating cities
+	std::vector<Destiny> destinies; //Vector with operating cities
+	Graph<Destiny> graph;
 public:
 	Agency(std::string name);
 	std::string getName() const;
 	std::vector<Client*> getClients() const;
-	std::vector<Destiny*> getDestinies() const;
+	std::vector<Destiny> getDestinies() const;
+	Graph<Destiny> getGraph() const;
 
 	void addClient(Client* c);
-	void addDestiny(Destiny* d);
+	void addDestiny(Destiny& d);
 };
 
 

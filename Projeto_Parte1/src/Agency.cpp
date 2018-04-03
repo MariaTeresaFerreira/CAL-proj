@@ -18,7 +18,7 @@ std::vector<Client*> Agency::getClients() const{
 	return this->clients;
 }
 
-std::vector<Destiny*> Agency::getDestinies() const{
+std::vector<Destiny> Agency::getDestinies() const{
 	return this->destinies;
 }
 
@@ -26,6 +26,10 @@ void Agency::addClient(Client* c){
 	this->clients.push_back(c);
 }
 
-void Agency::addDestiny(Destiny* d){
+void Agency::addDestiny(Destiny &d){
 	this->destinies.push_back(d);
+}
+
+Graph<Destiny> Agency::getGraph() const{
+	return this->graph;
 }

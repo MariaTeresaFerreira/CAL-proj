@@ -13,16 +13,16 @@
 #include "Agency.h"
 #include "Clients.h"
 /*
- * @brief Bubble sort algorthm to sort a "Destiny" vector by ID
+ * @brief Bubble sort algorithm to sort a "Destiny" vector by ID
  * @param destiny_aux destiny vector to be sorted
  */
-void bubbleSortD(std::vector<Destiny*>& destiny_aux);
+void bubbleSortD(std::vector<Destiny> destiny_aux);
 
 /*
- * @brief Bubble sort algorthm to sort a "Destiny" vector by name
+ * @brief Bubble sort algorithm to sort a "Destiny" vector by name
  * @param destiny_aux destiny vector to be sorted
  */
-void bubbleSortDname(std::vector<Destiny*>& destiny_aux);
+void bubbleSortDname(std::vector<Destiny> destiny_aux);
 
 /*
  * @brief Selection sort to sort a Destiny vector by name
@@ -31,18 +31,11 @@ void bubbleSortDname(std::vector<Destiny*>& destiny_aux);
 void selectionSortD(std::vector<Destiny> &d_aux);
 
 /*
- * @brief Binary search algorithm to search a destiny by ID
- * @param d destiny vector to search
- * @param x destiny ID
- */
-int binarySearchD(const std::vector<Destiny*> &d, int x);
-
-/*
  * @brief Binary search algorithm to search a destiny by name
  * @param d destinies vector to search
  * @param x destiny name
  */
-int binarySearchD(const std::vector<Destiny*> &d, std::string x);
+Destiny binarySearchD(const std::vector<Destiny> d, std::string x);
 
 /**
  * @brief Binary search algorithm to search a client by ID
@@ -64,6 +57,6 @@ int binarySearchC(const std::vector<Client*> &v, std::string x);
  * @param vect Vector of destinies
  * @param ID to find
  */
-Destiny* searchID(std::vector<Destiny*> vect, int ID);
+Destiny searchID(std::vector<Destiny> vect, int ID);
 #endif /* SRC_ALGORITHMS_H_ */
 
