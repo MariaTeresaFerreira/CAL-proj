@@ -116,3 +116,25 @@ Destiny binarySearchD(const std::vector<Destiny> d, std::string x)
 	return Destiny();
 }
 
+Destiny searchCityName(const std::vector<Destiny> d, std::string x){
+	for(size_t i = 0; i < d.size(); i++){
+		if(d[i].getCityName() == x)
+			return d[i];
+	}
+	return Destiny();
+}
+
+bool isPossibleDestiny(const std::vector<PossibleDestinies*> p, Destiny d){
+	for(size_t i = 0; i < p.size(); i++){
+		if(p[i]->getID() == d.getID()){
+			return true;
+		}
+	}
+	return false;
+}
+
+void flush(){
+	for(int i = 0 ; i <= 20; i++){
+		std::cin.ignore('\n');
+	}
+}

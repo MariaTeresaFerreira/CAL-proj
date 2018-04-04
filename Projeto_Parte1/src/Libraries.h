@@ -20,5 +20,6 @@
 #include <fstream>
 #include <ctime>
 #include <cstdio>
+#include <algorithm>
 
 #endif /* SRC_LIBRARIES_H_ */

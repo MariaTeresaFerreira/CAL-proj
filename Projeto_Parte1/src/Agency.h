@@ -30,6 +30,10 @@ public:
 
 	void addClient(Client* c);
 	void addDestiny(Destiny& d);
+	void addVertex(Destiny& d);
+	void addEdge(Destiny& origin, Destiny& dest, double cost);
+	void dijkstra(Destiny& origin);
+	vector<Destiny> getPath(Destiny& origin, Destiny& dest);
 };
 
 

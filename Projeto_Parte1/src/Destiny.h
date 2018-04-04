@@ -30,8 +30,9 @@ public:
 
 	int getID() const;
 	std::string getCityName() const;
-	std::vector<Accommodation*> getAllAccommodation();
+	std::vector<Accommodation*> getAllAccommodation() const;
 	Accommodation* cheapestAccommodation(Date d);
+	Accommodation* findByName(std::string acc);
 	Coordinates getCoord();
 
 	std::vector<PossibleDestinies*> getAllDestinies();

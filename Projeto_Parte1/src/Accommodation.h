@@ -13,22 +13,22 @@
 
 class Accommodation{
 private:
-	float basePrice;
+	int basePrice;
 	std::string name;
 	std::vector<Period*> periods;
 public:
 	Accommodation();
 	Accommodation(float price, std::string name, std::vector<Period*> periods);
 
-	float getBasePrice();
+	int getBasePrice();
 	std::string getName();
 	std::vector<Period*> getAllPeriods();
 	Period* getPeriod(Date d);
-	float getPrice(Date d);
+	int getPrice(Date d);
 
 	friend std::ostream & operator <<(std::ostream &o, const Accommodation &a){
-		o << "The accommodation name is: " << a.name << std::endl;
-		o << "It has a base price of: " << a.basePrice << " but will be more expensive or less, it depends because of the period." << std::endl;
+		o << "The accommodation name is:" << a.name << std::endl;
+		o << "It has a base price of: " << a.basePrice << std::endl;
 		o << "All the seasons: " << std::endl;
 
 		for(size_t i = 0; i < a.periods.size(); i++){

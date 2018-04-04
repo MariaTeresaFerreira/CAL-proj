@@ -9,7 +9,9 @@
 
 Date::Date(): day(0), month(0), year(0), hour(0), minute(0){}
 
-Date::Date(int d, int m): day(d), month(m){}
+Date::Date(int d, int m): day(d), month(m){
+	year = 0;
+}
 
 Date::Date(int d, int m, int y): day(d), month(m), year(y){
 	hour = 0;

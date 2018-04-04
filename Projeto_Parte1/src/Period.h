@@ -14,10 +14,10 @@ class Period{
 	std::string name;
 	Date init;
 	Date end;
-	float price;
+	int price;
 public:
 	Period();
-	Period(std::string name, Date *init, Date *end, float price);
+	Period(std::string name, Date *init, Date *end, int price);
 
 	Date getInit();
 	Date getEnd();
@@ -30,7 +30,7 @@ public:
 	int getEndMonth();
 	int getEndYear();
 
-	float getPrice() const;
+	int getPrice() const;
 
 	std::string getName();
 

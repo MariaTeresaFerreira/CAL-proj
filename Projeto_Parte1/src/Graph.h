@@ -8,6 +8,7 @@
 #include <queue>
 #include "MutablePriorityQueue.h"
 #include "Libraries.h"
+#include <list>
 using namespace std;
 
 template <class T> class Edge;
@@ -158,6 +159,9 @@ class Graph {
 	bool dfsIsDAG(Vertex<T> *v) const;
 public:
 	int getNumVertex() const;
+	int getNumEdges() const;
+	int maxNewChildren(const T &source, T &inf) const;
+
 	bool addVertex(const T &in);
 	bool removeVertex(const T &in);
 	bool addEdge(const T &sourc, const T &dest, double w);
@@ -170,10 +174,9 @@ public:
 	vector<T> topsort() const;
 	vector<T> getPath(const T &origin, const T &dest);
 
-
-	int maxNewChildren(const T &source, T &inf) const;
 	void unweightedShortestPath(const T &orig);
 	void dijkstraShortestPath(const T &origin);
+
 };
 
 
@@ -183,6 +186,15 @@ Vertex<T>::Vertex(T in): info(in) {}
 template <class T>
 int Graph<T>::getNumVertex() const {
 	return vertexSet.size();
+}
+
+template <class T>
+int Graph<T>::getNumEdges() const{
+	int num = 0;
+	for(auto v : vertexSet){
+		num += v->adj.size();
+	}
+	return num;
 }
 
 template <class T>
@@ -411,15 +423,11 @@ vector<T> Graph<T>::getPath(const T &origin, const T &dest){
 	if( v1 == NULL || v2 == NULL) return res;
 
 	while(v2->getPath() != NULL) {
-
 		res.push_back(v2->getInfo());
-
 		v2 = v2->getPath();
-
 	}
 
 	res.push_back(origin);
-
 	reverse(res.begin(), res.end());
 
 	return res;

@@ -17,4 +17,8 @@ void importClients(Agency& agency);
 
 void importCities(Agency& agency);
 
+void loadEdgesTime(Agency& agency);
+
+void loadEdgesCost(Agency& agency);
+
 #endif /* IMPORTINFO_H_ */

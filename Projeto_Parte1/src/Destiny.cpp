@@ -49,7 +49,7 @@ std::string Destiny::getCityName() const{
 	return cityName;
 }
 
-std::vector<Accommodation*> Destiny::getAllAccommodation(){
+std::vector<Accommodation*> Destiny::getAllAccommodation() const{
 	return accommodation;
 }
 
@@ -130,4 +130,12 @@ void Destiny::setCoordinates(Coordinates coord){
 bool Destiny::operator ==(const Destiny& d){
 	if(ID == d.getID()) return true;
 	return false;
+}
+
+Accommodation* Destiny::findByName(std::string acc){
+	for(auto it : accommodation){
+		if((*it).getName() == acc)
+			return it;
+	}
+	return NULL;
 }

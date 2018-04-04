@@ -14,7 +14,7 @@ Period::Period(){
 	price = 0;
 }
 
-Period::Period(std::string name, Date *init, Date *end, float price): name(name), price(price){
+Period::Period(std::string name, Date *init, Date *end, int price): name(name), price(price){
 	this->init.setDay(init->getDay());
 	this->init.setMonth(init->getMonth());
 
@@ -30,7 +30,7 @@ Date Period::getEnd(){
 	return end;
 }
 
-float Period::getPrice() const{
+int Period::getPrice() const{
 	return price;
 }
 

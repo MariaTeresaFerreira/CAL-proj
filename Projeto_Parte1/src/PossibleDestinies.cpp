@@ -12,10 +12,10 @@ int PossibleDestinies::getID() const{
 	return ID;
 }
 
-float PossibleDestinies::getPrice(){
+int PossibleDestinies::getPrice(){
 	return tripPrice;
 }
 
-float PossibleDestinies::getTime(){
+int PossibleDestinies::getTime(){
 	return tripTime;
 }

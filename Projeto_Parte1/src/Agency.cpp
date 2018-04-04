@@ -33,3 +33,19 @@ void Agency::addDestiny(Destiny &d){
 Graph<Destiny> Agency::getGraph() const{
 	return this->graph;
 }
+
+void Agency::addVertex(Destiny& d){
+	this->graph.addVertex(d);
+}
+
+void Agency::addEdge(Destiny& origin, Destiny& dest, double cost){
+	this->graph.addEdge(origin, dest, cost);
+}
+
+void Agency::dijkstra(Destiny& origin){
+	this->graph.dijkstraShortestPath(origin);
+}
+
+vector<Destiny> Agency::getPath(Destiny& origin, Destiny& dest){
+	return this->graph.getPath(origin, dest);
+}

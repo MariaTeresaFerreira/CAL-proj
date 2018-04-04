@@ -41,8 +41,8 @@ public:
 	}
 
 	friend std::ostream& operator <<(std::ostream& o, const Date& d){
-		o << d.day << "/" << d.month << "/" << d.year << ":";
-
+		o << d.day << "/" << d.month << "/" << "year"; //Tenho year porque os anos são um pouco irrelevantes.
+/*
 		if(d.hour < 10)
 			o << "0" << d.hour;
 		else
@@ -52,7 +52,7 @@ public:
 			o << "0" << d.minute;
 		else
 			o << d.minute;
-
+*/
 		return o;
 	}
 

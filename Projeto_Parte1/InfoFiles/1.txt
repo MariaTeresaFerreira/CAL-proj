@@ -1,7 +1,7 @@
 Porto
-610,170
+170,600
 3
-HF Ipanema 
+HF Ipanema
 4
 Verao
 21-06/22-09
@@ -15,7 +15,7 @@ Outono
 Primavera
 3-01/20-06
 80
-InterContinental 
+InterContinental
 4
 Verao
 21-06/22-09
@@ -29,7 +29,7 @@ Outono
 Primavera
 3-01/20-06
 100
-The Yeatman 
+The Yeatman
 4
 Verao
 21-06/22-09
@@ -56,6 +56,3 @@ Primavera
 5
 210
 320
-
-
-

@@ -18,8 +18,8 @@ private:
 public:
 	PossibleDestinies(int ID, int trip, int time);
 	int getID() const;
-	float getPrice();
-	float getTime();
+	int getPrice();
+	int getTime();
 
 	friend std::ostream& operator <<(std::ostream& o, const PossibleDestinies &d){
 

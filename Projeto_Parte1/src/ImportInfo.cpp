@@ -88,7 +88,7 @@ void importCities(Agency& agency){
 			//CICLO Alojamento
 			std::vector<Accommodation*> accommodations;
 			for(size_t i = 0; i < count1; i++){
-				std::getline(in, nameA);
+				std::getline(in,nameA);
 				std::getline(in,temp);
 				count2 = atoi(temp.c_str());
 
@@ -142,28 +142,50 @@ void importCities(Agency& agency){
 			Destiny destiny = Destiny(nameCity, accommodations, pDestinies, cords);
 			agency.addDestiny(destiny);
 
-			agency.getGraph().addVertex(destiny);
+			agency.addVertex(destiny);
 
 			in.close();
 		}
 		counter++;
 	}
-
-	/*
-	 * 	int id = 0;
-
-		for(size_t i=0; i<cidadesId.size(); i++){
-			for (size_t k = 0; k < cidadesId[i].getNumeroDestinos(); k++) {
-				int id = cidadesId[i].getId();
-				int id_destino = cidadesId[i].getIdDestino(k);
-				int custo =  cidadesId[i].getCustoViagem(k);
-				int tempo =  cidadesId[i].getTempoViagem(k);
-
-				Aresta a = Aresta(id,id_destino, custo, tempo);
-				arestas[id] = a;
-				id++;
-
-			}
-		}
-	 */
 }
+
+void loadEdgesTime(Agency& agency){
+
+	for(size_t i = 0 ; i < agency.getDestinies().size(); i++){
+
+		Destiny origin = agency.getDestinies()[i];
+
+		for(size_t j = 0; j < origin.getAllDestinies().size(); j++){
+
+			int id = origin.getAllDestinies()[j]->getID();
+			double time = origin.getAllDestinies()[j]->getTime();
+
+			Destiny dest = searchID(agency.getDestinies(), id);
+
+			agency.addEdge(origin, dest, time);
+
+		}
+	}
+}
+
+void loadEdgesCost(Agency& agency){
+
+	for(size_t i = 0 ; i < agency.getDestinies().size(); i++){
+
+		Destiny origin = agency.getDestinies()[i];
+
+		for(size_t j = 0; j < origin.getAllDestinies().size(); j++){
+
+			int id = origin.getAllDestinies()[j]->getID();
+			double cost = origin.getAllDestinies()[j]->getPrice();
+
+			Destiny dest = searchID(agency.getDestinies(), id);
+
+			agency.addEdge(origin, dest, cost);
+
+		}
+	}
+}
+
+

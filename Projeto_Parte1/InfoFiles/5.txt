@@ -1,5 +1,5 @@
 London
-635,130
+360,390
 5
 The Exhibitionist Hotel
 4
@@ -71,7 +71,7 @@ Outono
 Primavera
 3-01/20-06
 150
-4
+3
 1
 200
 360
@@ -81,6 +81,3 @@ Primavera
 3
 100
 220
-4
-90
-130

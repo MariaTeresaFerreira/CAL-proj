@@ -1,5 +1,5 @@
 Madrid
-625,175
+220,660
 5
 Hotel Villa Magna
 4

@@ -16,7 +16,7 @@ Accommodation::Accommodation(){
 Accommodation::Accommodation(float price, std::string name, std::vector<Period*> periods):
 	basePrice(price), name(name), periods(periods){}
 
-float Accommodation::getBasePrice(){
+int Accommodation::getBasePrice(){
 	return basePrice;
 }
 
@@ -44,7 +44,7 @@ Period* Accommodation::getPeriod(Date d){
 	return p;
 }
 
-float Accommodation::getPrice(Date d){
+int Accommodation::getPrice(Date d){
 
 	float price = this->basePrice;
 
