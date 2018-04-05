@@ -346,7 +346,7 @@ int flightReservation1(Agency& agency){
 	std::cout << "Do you wish to visit more than one city?[y/n]";
 	std::cin >> option;
 
-	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return 0;//adicionar função para vários destinos.
+	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return manyDestinies1(agency);
 
 	//PARTIDA
 	std::cout << "Please insert the city where you want to begin your travel:";
@@ -440,7 +440,7 @@ int flightReservation2(Agency& agency){
 	std::cout << "Do you wish to visit more than one city?[y/n]";
 	std::cin >> option;
 
-	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return 0;//adicionar função para vários destinos.
+	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return manyDestinies2(agency);
 
 	//PARTIDA
 	std::cout << "Please insert the city where you want to begin your travel:";
@@ -511,6 +511,53 @@ int flightReservation2(Agency& agency){
 
 	return 0;
 }
+
+int manyDestinies1(Agency& agency){
+	std::string origin;
+	std::vector<string> stops;
+	int n, i = 1;
+
+	std::cout <<"\nYou have selected the option to multiple destinies.\n" << std::endl;
+	std::cout <<"Please enter the city where you want to begin your travel:";
+	std::cin >> origin;
+
+	std::cout <<"\nEnter the number of cities you want to visit:"; std::cin >> n;
+	std::cout <<"\nNow please enter the name of the cities you want to visit:" << std::endl;
+	while(i <= n){//Está a crashar
+		std::cout << i << ":";
+		std::cin >> stops[i];
+		i++;
+	}
+	std::cout <<"Countries successfully loaded!" << std::endl;
+
+	return 0;
+}
+
+int manyDestinies2(Agency& agency){
+
+	std::cout <<"\nYou have selected the option to multiple destinies.\n" << std::endl;
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  * Here we have the functions that let the client know the destinies they can travel to, the cost of the flight and the time spent.

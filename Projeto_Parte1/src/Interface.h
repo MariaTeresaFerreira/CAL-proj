@@ -35,6 +35,8 @@ int checkClient(Agency& agency);
 
 int flightReservation1(Agency& agency);
 int flightReservation2(Agency& agency);
+int manyDestinies1(Agency& agency);
+int manyDestinies2(Agency& agency);
 
 
 int checkOperatingCities(Agency& agency);
