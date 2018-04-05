@@ -25,6 +25,7 @@ bool flightMenu(Agency& agency);
 
 int openMap(Agency& agency);
 void updateMap(Agency& agency);
+void openMapRoute(std::vector<Destiny> &d);
 
 
 int checkAllclients(Agency& agency);

@@ -8,6 +8,7 @@
 #include "Interface.h"
 
 GraphViewer *gv;
+GraphViewer *gvRoute;
 
 void initMenu(Agency& agency){
 	bool exit = false;
@@ -270,6 +271,28 @@ void updateMap(Agency& agency){ //FUNÇÃO QUE USO PARA CONSTRUIR O GRAPHO, graphv
 	gv->rearrange();
 }
 
+void openMapRoute(std::vector<Destiny> &d){
+
+	gvRoute = new GraphViewer(1280, 835, false);
+	gvRoute->setBackground("background_small.jpg");
+	gvRoute->createWindow(1280, 835); //mudar conforme resolução da imagem.
+	gvRoute->defineVertexColor("yellow");
+	gvRoute->defineEdgeColor("red");
+
+	for(size_t i = 0; i < d.size() ; i++){
+		gvRoute->addNode(i, d[i].getCoord().getX(), d[i].getCoord().getY());
+		gvRoute->setVertexLabel(i, d[i].getCityName());
+		gvRoute->defineEdgeCurved(false);
+	}
+	for(size_t j = 0; j < d.size(); j++){
+		if(j == (d.size()-1)) break;
+		else{
+			gvRoute->addEdge(j, j, (j+1), EdgeType::DIRECTED);
+		}
+	}
+	gvRoute->rearrange();
+}
+
 
 
 
@@ -355,6 +378,7 @@ int flightReservation1(Agency& agency){
 		}
 	}
 
+	openMapRoute(d);
 
 	//ACCOMMODATION
 
@@ -403,8 +427,6 @@ int flightReservation1(Agency& agency){
 	std::cout << "Your accommodation will cost :" << cost << " euros" << std::endl;
 	//DONE AGORA É SO ACABAR AS OUTRAS E SE ME DER NOS CORNOS FAÇO UMA CLASSE RESERVAS
 
-	//openMapRoute(d);
-
 	return 0;
 }
 
@@ -449,6 +471,9 @@ int flightReservation2(Agency& agency){
 			}
 		}
 	}
+
+	openMapRoute(d);
+
 	std::cout << std::endl;
 	//DATE
 	int dayI, monthI, dayE, monthE;
@@ -483,8 +508,6 @@ int flightReservation2(Agency& agency){
 	int cost = acc->getPrice(dateInit);
 
 	std::cout << "The accommodation will cost you " << cost << " euros" << std::endl;
-
-	//openMapRoute(d);
 
 	return 0;
 }
