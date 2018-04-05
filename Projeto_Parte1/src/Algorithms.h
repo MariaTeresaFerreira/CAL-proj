@@ -68,6 +68,15 @@ bool isPossibleDestiny(const std::vector<PossibleDestinies*> p, Destiny d);
 Accommodation searchAccommodation(Destiny& d, std::string acc);
 
 void flush();
-
+/*
+void removeReps(std::vector<Destiny>& d){
+	for(auto i = d.begin() ; i !=d.end(); i++){
+		if(i->getCityName() == (i+1)->getCityName()){
+			d.erase(i);
+			i--;
+		}
+	}
+}
+*/
 #endif /* SRC_ALGORITHMS_H_ */
 

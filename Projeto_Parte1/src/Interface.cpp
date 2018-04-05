@@ -287,7 +287,7 @@ void openMapRoute(std::vector<Destiny> &d){
 	for(size_t j = 0; j < d.size(); j++){
 		if(j == (d.size()-1)) break;
 		else{
-			gvRoute->addEdge(j, j, (j+1), EdgeType::DIRECTED);
+			gvRoute->addEdge(j, j, (j+1), EdgeType::DIRECTED);//queria usar sleep para se perceber o trajeto
 		}
 	}
 	gvRoute->rearrange();
@@ -339,14 +339,8 @@ bool flightMenu(Agency& agency){
 
 int flightReservation1(Agency& agency){
 	std::string origin, destiny, option;
-	std::vector<std::string> stops;
 
 	loadEdgesTime(agency);
-
-	std::cout << "Do you wish to visit more than one city?[y/n]";
-	std::cin >> option;
-
-	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return manyDestinies1(agency);
 
 	//PARTIDA
 	std::cout << "Please insert the city where you want to begin your travel:";
@@ -440,7 +434,7 @@ int flightReservation2(Agency& agency){
 	std::cout << "Do you wish to visit more than one city?[y/n]";
 	std::cin >> option;
 
-	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return manyDestinies2(agency);
+	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return manyDestinies(agency);
 
 	//PARTIDA
 	std::cout << "Please insert the city where you want to begin your travel:";
@@ -512,10 +506,14 @@ int flightReservation2(Agency& agency){
 	return 0;
 }
 
-int manyDestinies1(Agency& agency){
-	std::string origin;
-	std::vector<string> stops;
+
+int manyDestinies(Agency& agency){
+
+	std::string origin, dest;
 	int n, i = 1;
+	std::vector<Destiny> allDests;
+	std::vector<Accommodation*> accommodations;
+	std::vector<Date> dates;
 
 	std::cout <<"\nYou have selected the option to multiple destinies.\n" << std::endl;
 	std::cout <<"Please enter the city where you want to begin your travel:";
@@ -523,19 +521,64 @@ int manyDestinies1(Agency& agency){
 
 	std::cout <<"\nEnter the number of cities you want to visit:"; std::cin >> n;
 	std::cout <<"\nNow please enter the name of the cities you want to visit:" << std::endl;
-	while(i <= n){//Está a crashar
+
+	std::vector<string> stops;
+	while(i <= n){
 		std::cout << i << ":";
-		std::cin >> stops[i];
+		std::cin >> dest;
+		stops.push_back(dest);
+		cin.ignore();
+		dest.clear();
 		i++;
 	}
-	std::cout <<"Countries successfully loaded!" << std::endl;
 
-	return 0;
-}
+	for(size_t i = 0; i < stops.size(); i++){
+		int day, month;
 
-int manyDestinies2(Agency& agency){
+		Destiny takeOff = searchCityName(agency.getDestinies(), origin);
+		Destiny nextStop = searchCityName(agency.getDestinies(), stops[i]);
 
-	std::cout <<"\nYou have selected the option to multiple destinies.\n" << std::endl;
+		agency.dijkstra(takeOff);
+		std::vector<Destiny> d = agency.getPath(takeOff, nextStop);
+
+		std::cout << "For the flight number " << (i+1) << " choose a date." << std::endl;
+		std::cout << "Day: ";
+		std::cin >> day;
+		std::cin.ignore();
+		std::cin.clear();
+		std::cout << "Month: ";
+		std::cin >> month;
+
+		Date date = Date(day, month);
+		dates.push_back(date);
+
+		accommodations.push_back(nextStop.cheapestAccommodation(date));
+
+		for(size_t j = 0; j < d.size(); j++){
+			allDests.push_back(d[j]);
+		}
+		origin = stops[i];
+	}
+
+	openMapRoute(allDests);
+
+	std::cout << "\nIn order to optimize the cost of your journey we planned these flights for you: " << std::endl;
+	for(size_t i = 0 ; i < allDests.size(); i++){
+		if(i == (allDests.size()-1)){
+			std::cout << allDests[i].getCityName() << std::endl;
+		}
+		if(allDests[i].getCityName() == allDests[i+1].getCityName()){
+				std::cout << allDests[i].getCityName() << ". . . wating flight . . .";
+		}else{
+				std::cout << allDests[i].getCityName() << "--->";
+		}
+	}
+
+	std::cout << "\nAlso these are the accommodations whose price is the best!" << std::endl;
+	for(size_t i = 0; i < accommodations.size(); i++){
+		std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
+	}
+
 
 	return 0;
 }

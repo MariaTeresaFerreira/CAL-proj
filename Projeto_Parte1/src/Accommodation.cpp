@@ -45,7 +45,7 @@ Period* Accommodation::getPeriod(Date d){
 			return p;
 		}
 	}
-	std::cout << "No special period in that date." << std::endl;
+	//std::cout << "No special period in that date." << std::endl;
 	return p;
 }
 
