@@ -2,3 +2,4 @@
 2/Maria Teresa Ferreira/123456789/mariateresa@hotmail.com
 3/Francisco Miranda/12345678/franciscomiranda@fe.up.pt
 4/Jose Maria Reis/123456789/jose@gmail.com
+5/Diogo Boal/123456789/diogo@iseps.com

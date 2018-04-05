@@ -296,9 +296,9 @@ bool flightMenu(Agency& agency){
 		case 1:
 			instruction = flightReservation1(agency);
 			break;
-		//case 2:
-			//instruction = flightReservation2(agency);
-			//break;
+		case 2:
+			instruction = flightReservation2(agency);
+			break;
 		case 0:
 			return false;
 		case -1:
@@ -334,7 +334,7 @@ int flightReservation1(Agency& agency){
 	std::cout << "Please insert the city where you want to end your travel:";
 	std::cout << std::endl;
 	std::cin >> destiny;
-	std::cout << "\n\n\n\n\n\n";
+	std::cout << "\n\n\n\n";
 
 	//RESGISTAR PARTIDA E CHEGADA PARA MAIS TARDE VER SE É POSSÍVEL.
 	Destiny init = searchCityName(agency.getDestinies(), origin);
@@ -400,60 +400,94 @@ int flightReservation1(Agency& agency){
 
 	int cost = acc->getPrice(dateInit);
 
-	//std::cout << cost << std::endl;
+	std::cout << "Your accommodation will cost :" << cost << " euros" << std::endl;
 	//DONE AGORA É SO ACABAR AS OUTRAS E SE ME DER NOS CORNOS FAÇO UMA CLASSE RESERVAS
+
+	//openMapRoute(d);
+
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 int flightReservation2(Agency& agency){
 
+	std::string origin, destiny, option;
+	std::vector<std::string> stops;
+
+	loadEdgesCost(agency);
+
+	std::cout << "Do you wish to visit more than one city?[y/n]";
+	std::cin >> option;
+
+	if(option == "yes" || option == "y" || option == "YES" || option == "Y") return 0;//adicionar função para vários destinos.
+
+	//PARTIDA
+	std::cout << "Please insert the city where you want to begin your travel:";
+	std::cout << std::endl;
+	std::cin >> origin;
+
+	//CHEGADA
+	std::cout << "Please insert the city where you want to end your travel:";
+	std::cout << std::endl;
+	std::cin >> destiny;
+	std::cout << "\n\n";
+
+	//RESGISTAR PARTIDA E CHEGADA PARA MAIS TARDE VER SE É POSSÍVEL.
+	Destiny init = searchCityName(agency.getDestinies(), origin);
+	Destiny dest = searchCityName(agency.getDestinies(), destiny);
+
+	agency.dijkstra(init);
+	std::vector<Destiny> d = agency.getPath(init, dest);
+
+	//Falta adicionar a opção de o sítio não ser atingível.
+	if(d.size() > 2){
+		std::cout << "In order to optimize the cost, we have chosen this route: \n" << std::endl;
+		for(size_t i = 0; i < d.size(); i++){
+			if(i == d.size() -1){
+				std::cout << d[i].getCityName() << std::endl;
+			}else{
+				std::cout << d[i].getCityName() << "---->"; //Se houver tempo, mudar isto para uma representação no graphviewer
+			}
+		}
+	}
+	std::cout << std::endl;
+	//DATE
+	int dayI, monthI, dayE, monthE;
+
+	std::cout << "Now insert the date. . . " << std::endl;
+
+	std::cout << "Departure day: ";
+	std::cin >> dayI;
+	std::cout << std::endl;
+
+	std::cout << "Departure month: ";
+	std::cin >> monthI;
+	std::cout << std::endl;
+
+	std::cout << "Returning day: ";
+	std::cin >> dayE;
+	std::cout << std::endl;
+
+	std::cout << "Returning month: ";
+	std::cin >> monthE;
+	std::cout << std::endl;
+
+	Date dateInit = Date(dayI, monthI);
+	Date dateEnd = Date(dayE, monthE);
+
+	//CHEAPEST ACCOMMODATION
+	Accommodation *acc = dest.cheapestAccommodation(dateInit);
+
+	std::cout << "In order to optimize the cost, we have chosen this accommodation: \n";
+	std::cout << *acc << std::endl;
+
+	int cost = acc->getPrice(dateInit);
+
+	std::cout << "The accommodation will cost you " << cost << " euros" << std::endl;
+
+	//openMapRoute(d);
+
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
  * Here we have the functions that let the client know the destinies they can travel to, the cost of the flight and the time spent.

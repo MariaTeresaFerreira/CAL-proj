@@ -62,7 +62,7 @@ Accommodation* Destiny::cheapestAccommodation(Date d){
 
 	for(; it!=accommodation.end(); it++){
 
-		float price = ((*it)->getBasePrice() + (*it)->getPrice(d));
+		int price = (*it)->getPrice(d);
 
 		if(price < lowest_price){
 

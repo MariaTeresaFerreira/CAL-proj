@@ -34,9 +34,14 @@ Period* Accommodation::getPeriod(Date d){
 	Period *p = new Period();
 
 	for(; it != periods.end(); it++){
-
-		if(d >= (*it)->getInit() && d <= (*it)->getEnd()){
-			p = (*it);
+		if(d.getMonth() == (*it)->getInitMonth()){
+			if(d.getDay() >= (*it)->getInitDay()){
+				p = (*it);
+				return p;
+			}
+		}
+		if(d.getMonth() > (*it)->getInitMonth() && d.getMonth() < (*it)->getEndMonth()){
+			p=(*it);
 			return p;
 		}
 	}
