@@ -304,9 +304,10 @@ bool flightMenu(Agency& agency){
 	int option;
 
 	while(option != -1){
-		std::cout <<"\n\tMAP:\nWhat do you wish to optimize?" << std::endl;
+		std::cout <<"\nWhat do you wish to optimize?" << std::endl;
 		std::cout << "\t 1 - Time" << std::endl;
 		std::cout << "\t 2 - Cost" << std::endl;
+		std::cout << "\t 3 - Show me what can I get in X days . . ." << std::endl;
 		std::cout << "\t 0 - Go back" << std::endl;
 		std::cout << "\t-1 - Exit program.\n" << std::endl;
 
@@ -321,6 +322,9 @@ bool flightMenu(Agency& agency){
 			break;
 		case 2:
 			instruction = flightReservation2(agency);
+			break;
+		case 3:
+			instruction = flightReservation3(agency);
 			break;
 		case 0:
 			return false;
@@ -458,6 +462,11 @@ int flightReservation2(Agency& agency){
 	if(d.size() > 2){
 		std::cout << "In order to optimize the cost, we have chosen this route: \n" << std::endl;
 		for(size_t i = 0; i < d.size(); i++){
+
+			if(d.size() == 1){
+				std::cout << "We are sorry but we can't find any flights for your destination..." << std::endl;
+			}
+
 			if(i == d.size() -1){
 				std::cout << d[i].getCityName() << std::endl;
 			}else{
@@ -562,19 +571,19 @@ int manyDestinies(Agency& agency){
 
 	openMapRoute(allDests);
 
-	std::cout << "\nIn order to optimize the cost of your journey we planned these flights for you: " << std::endl;
+	std::cout << "\n\n\nIn order to optimize the cost of your journey we planned these flights for you: " << std::endl;
 	for(size_t i = 0 ; i < allDests.size(); i++){
 		if(i == (allDests.size()-1)){
 			std::cout << allDests[i].getCityName() << std::endl;
 		}
 		if(allDests[i].getCityName() == allDests[i+1].getCityName()){
-				std::cout << allDests[i].getCityName() << ". . . wating flight . . .";
+				std::cout << allDests[i].getCityName() << ". . . holidays . . .";
 		}else{
 				std::cout << allDests[i].getCityName() << "--->";
 		}
 	}
 
-	std::cout << "\nAlso these are the accommodations whose price is the best!" << std::endl;
+	std::cout << "\nAlso these are the accommodations whose price is the best!\n" << std::endl;
 	for(size_t i = 0; i < accommodations.size(); i++){
 		std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
 	}
@@ -586,13 +595,11 @@ int manyDestinies(Agency& agency){
 
 
 
+//OK FALTA ISTO PORQUE SÓ DEI CONTA HOJE HELP
 
-
-
-
-
-
-
+int flightReservation3(Agency& agency){
+	return 0;
+}
 
 
 
