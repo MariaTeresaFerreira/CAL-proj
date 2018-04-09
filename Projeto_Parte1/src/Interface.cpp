@@ -6,6 +6,8 @@
  */
 #include "Libraries.h"
 #include "Interface.h"
+#define FLIGHT_WAITING_TIME 2 //2horas
+#define VISITING_TIME 12 //12horas
 
 GraphViewer *gv;
 GraphViewer *gvRoute;
@@ -197,6 +199,7 @@ bool mapMenu(Agency& agency){
 	while(option != -1){
 		std::cout <<"\n\tMAP:" << std::endl;
 		std::cout << "\t1 - Open full map" << std::endl;
+		std::cout << "\t2 - Close map" << std::endl;
 		std::cout << "\t0 - Go back" << std::endl;
 		std::cout << "\t-1 - Exit program.\n" << std::endl;
 
@@ -209,6 +212,8 @@ bool mapMenu(Agency& agency){
 		case 1:
 			instruction = openMap(agency);
 			break;
+		case 2:
+			instruction = closeMap1();
 		case 0:
 			return false;
 		case -1:
@@ -224,6 +229,16 @@ bool mapMenu(Agency& agency){
 	return false;
 }
 
+int closeMap1(){
+	gv->closeWindow();
+	return 0;
+}
+
+int closeMap2(){
+	gvRoute->closeWindow();
+	return 0;
+}
+
 
 int openMap(Agency& agency){
 
@@ -236,7 +251,7 @@ int openMap(Agency& agency){
 
 	updateMap(agency);
 
-	return false;
+	return 0;
 }
 
 void updateMap(Agency& agency){ //FUNÇÃO QUE USO PARA CONSTRUIR O GRAPHO, graphviewer
@@ -287,7 +302,9 @@ void openMapRoute(std::vector<Destiny> &d){
 	for(size_t j = 0; j < d.size(); j++){
 		if(j == (d.size()-1)) break;
 		else{
+			Sleep(1000);
 			gvRoute->addEdge(j, j, (j+1), EdgeType::DIRECTED);//queria usar sleep para se perceber o trajeto
+			gvRoute->rearrange();
 		}
 	}
 	gvRoute->rearrange();
@@ -307,7 +324,8 @@ bool flightMenu(Agency& agency){
 		std::cout <<"\nWhat do you wish to optimize?" << std::endl;
 		std::cout << "\t 1 - Time" << std::endl;
 		std::cout << "\t 2 - Cost" << std::endl;
-		std::cout << "\t 3 - Show me what can I get in X days . . ." << std::endl;
+		std::cout << "\t 3 - Travel with a number of limiting days" << std::endl;
+		std::cout << "\t 4 - Close map" << std::endl;
 		std::cout << "\t 0 - Go back" << std::endl;
 		std::cout << "\t-1 - Exit program.\n" << std::endl;
 
@@ -325,6 +343,9 @@ bool flightMenu(Agency& agency){
 			break;
 		case 3:
 			instruction = flightReservation3(agency);
+			break;
+		case 4:
+			instruction = closeMap2();
 			break;
 		case 0:
 			return false;
@@ -458,19 +479,18 @@ int flightReservation2(Agency& agency){
 	agency.dijkstra(init);
 	std::vector<Destiny> d = agency.getPath(init, dest);
 
-	//Falta adicionar a opção de o sítio não ser atingível.
-	if(d.size() > 2){
-		std::cout << "In order to optimize the cost, we have chosen this route: \n" << std::endl;
-		for(size_t i = 0; i < d.size(); i++){
+	if(d.size() == 1){
+		std::cout << "We are sorry but we can't find any flights for your destination..." << std::endl;
+	}else{
+		if(d.size() > 2){
+			std::cout << "In order to optimize the cost, we have chosen this route: \n" << std::endl;
+			for(size_t i = 0; i < d.size(); i++){
 
-			if(d.size() == 1){
-				std::cout << "We are sorry but we can't find any flights for your destination..." << std::endl;
-			}
-
-			if(i == d.size() -1){
-				std::cout << d[i].getCityName() << std::endl;
-			}else{
-				std::cout << d[i].getCityName() << "---->"; //Se houver tempo, mudar isto para uma representação no graphviewer
+				if(i == d.size() -1){
+					std::cout << d[i].getCityName() << std::endl;
+				}else{
+					std::cout << d[i].getCityName() << "---->"; //Se houver tempo, mudar isto para uma representação no graphviewer
+				}
 			}
 		}
 	}
@@ -575,6 +595,7 @@ int manyDestinies(Agency& agency){
 	for(size_t i = 0 ; i < allDests.size(); i++){
 		if(i == (allDests.size()-1)){
 			std::cout << allDests[i].getCityName() << std::endl;
+			break;
 		}
 		if(allDests[i].getCityName() == allDests[i+1].getCityName()){
 				std::cout << allDests[i].getCityName() << ". . . holidays . . .";
@@ -595,11 +616,103 @@ int manyDestinies(Agency& agency){
 
 
 
-//OK FALTA ISTO PORQUE SÓ DEI CONTA HOJE HELP
-
+//////////////////////////////////////
+			//ACABAR//
+//////////////////////////////////////
 int flightReservation3(Agency& agency){
+
+	//A ideia desta função é receber vários destinos que o cliente quer, depois retornar o caminho mais rápido em termos de custo e no fim chamar uma função que receba o vector
+	// de getPahth(origin, destiny) e ir ao vector da agency "Destinies" e retirar os tempos de viagem do vetor Possible destinies.
+	// se o tempo form menor ou igual ao tempo referido pelo cliente, avança, senão tem de sugerir outras viagens.
+
+	std::string origin, dest;
+	int n, i = 1;
+	std::vector<Destiny> allDests;
+	std::vector<Accommodation*> accommodations;
+	std::vector<Date> dates;
+	loadEdgesCost(agency);
+	int totalTime = 0, totalDays;
+	int travelTime = 0;
+
+	std::cout << "Please enter the total of days you wish to travel:";
+	std::cin >> totalDays;
+
+	std::cout <<"Please enter the city where you want to begin your travel:";
+	std::cin >> origin;
+
+	std::cout <<"\nEnter the number of cities you want to visit:"; std::cin >> n;
+	std::cout <<"\nNow please enter the name of the cities you want to visit:" << std::endl;
+
+	std::vector<string> stops;
+	while(i <= n){
+		std::cout << i << ":";
+		std::cin >> dest;
+		stops.push_back(dest);
+		cin.ignore();
+		dest.clear();
+		i++;
+	}
+
+	for(size_t i = 0; i < stops.size(); i++){
+
+		Destiny takeOff = searchCityName(agency.getDestinies(), origin);
+		Destiny nextStop = searchCityName(agency.getDestinies(), stops[i]);
+
+		agency.dijkstra(takeOff);
+
+		std::vector<Destiny> d = agency.getPath(takeOff, nextStop);
+
+
+		for(size_t j = 0; j < (d.size()-1); j++){
+			totalTime += getTime(d[j], d[j+1].getID());
+		}
+
+		for(size_t j = 0; j < d.size(); j++){
+			allDests.push_back(d[j]);
+		}
+		origin = stops[i];
+	}
+
+	travelTime += totalTime + (n*VISITING_TIME) + (allDests.size()-n)*FLIGHT_WAITING_TIME;
+	totalDays = totalDays*24;
+
+	if(totalDays < travelTime){
+		std::cout << "Unfortunately we weren't able to find any flights within the time you introduced, please expand your traveling days or change destinies."<<std::endl;
+		return 0;
+	}
+
+	openMapRoute(allDests);
+
+
+
 	return 0;
 }
+
+
+int getTime(Destiny &d, int id){
+
+	for(size_t i = 0;  i < d.getAllDestinies().size(); i++){
+		if(d.getAllDestinies()[i]->getID() == id)
+			return d.getAllDestinies()[i]->getTime();
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

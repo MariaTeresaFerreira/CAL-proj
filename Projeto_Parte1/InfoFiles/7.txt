@@ -1,5 +1,5 @@
 Rome
-600,600
+510,650
 5
 Hotel Raphael
 4

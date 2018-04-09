@@ -1,5 +1,5 @@
 Athens
-1000,800
+700,750
 5
 St George Lycabettus
 4

@@ -1,5 +1,5 @@
 Berlin
-360,390
+480,450
 4
 Hampton by Hilton Berlin City West
 4

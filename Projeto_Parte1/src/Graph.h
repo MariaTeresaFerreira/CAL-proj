@@ -127,6 +127,7 @@ class Edge {
 	Vertex<T> * dest;      // destination vertex
 	Vertex<T> * orig;
 	double weight;         // edge weight
+	double time;			//Argumento criado para poder utilizar na flightReservation 3, onde vejo o que posso obter em X dias.
 public:
 	Edge(Vertex<T> *d, double w);
 	friend class Graph<T>;
@@ -161,6 +162,7 @@ public:
 	int getNumVertex() const;
 	int getNumEdges() const;
 	int maxNewChildren(const T &source, T &inf) const;
+	//int getTime(vector<T> &path); //função que me retorna o tempo de voos. Dunno if needed.
 
 	bool addVertex(const T &in);
 	bool removeVertex(const T &in);
