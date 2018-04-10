@@ -1,5 +1,5 @@
 Stockholm
-650,180
+600,260
 3
 Lydmar Hotel
 4

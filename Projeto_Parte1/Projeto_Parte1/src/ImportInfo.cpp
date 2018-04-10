@@ -64,7 +64,7 @@ void importCities(Agency& agency){
 	std::string nameCity, nameA, nameP, temp;
 	unsigned int x, y, count1, count2;
 
-	while(counter <= 5/* mudar consoante os ficheiros*/){
+	while(counter <= 20/* mudar consoante os ficheiros*/){
 		std::ostringstream converter;
 		converter << counter;
 		std::string fich = path + converter.str() + ".txt";

@@ -11,6 +11,7 @@
 #include "Libraries.h"
 #include "ImportInfo.h"
 #include "ExportInfo.h"
+#include "graphviewer.h"
 
 
 void initMenu(Agency& agency);
@@ -26,6 +27,8 @@ bool flightMenu(Agency& agency);
 int openMap(Agency& agency);
 void updateMap(Agency& agency);
 void openMapRoute(std::vector<Destiny> &d);
+int closeMap1();
+int closeMap2();
 
 
 int checkAllclients(Agency& agency);
@@ -37,6 +40,7 @@ int flightReservation1(Agency& agency);
 int flightReservation2(Agency& agency);
 int flightReservation3(Agency& agency);
 int manyDestinies(Agency& agency);
+int getTime(Destiny &d, int id);
 
 
 

@@ -1,5 +1,5 @@
 Warsaw
-360,390
+570,460
 3
 InterContinental Warszawa
 4

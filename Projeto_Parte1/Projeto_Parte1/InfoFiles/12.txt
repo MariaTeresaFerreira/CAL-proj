@@ -1,5 +1,5 @@
 Helsinki
-750,150
+660,260
 3
 Hotel Kamp
 4
