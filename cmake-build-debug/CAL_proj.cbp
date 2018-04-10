@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CAL_proj"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CAL_proj">
+				<Option output="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug/CAL_proj" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 CAL_proj"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CAL_proj/fast">
+				<Option output="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug/CAL_proj" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 CAL_proj/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Teresa/Escola/FEUP/2º\ Ano/2º\ Semestre/CAL/CAL-proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/Projeto_Parte1.exe">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Accommodation.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Algorithms.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Clients.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Coordinates.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Date.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Destiny.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/ExportInfor.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/ImportInfo.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Interface.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Period.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/PossibleDestinies.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/Projeto_Parte1.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/graphviewer.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/Debug/src/main.o">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/GraphViewerController.jar">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/InfoFiles/1.txt">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/InfoFiles/2.txt">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/InfoFiles/3.txt">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/InfoFiles/4.txt">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/InfoFiles/5.txt">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/InfoFiles/clients.txt">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/background.jpg">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/background_small.jpg">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Accommodation.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Accommodation.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Agency.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Agency.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Algorithms.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Algorithms.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Clients.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Clients.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Coordinates.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Coordinates.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Date.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Date.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Destiny.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Destiny.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/ExportInfo.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/ExportInfor.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Graph.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/ImportInfo.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/ImportInfo.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Interface.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Interface.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Libraries.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/MutablePriorityQueue.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Period.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/Period.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/PossibleDestinies.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/PossibleDestinies.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/connection.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/connection.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/edgetype.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/graphviewer.cpp">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/Projeto_Parte1/src/graphviewer.h">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/README.md">
+			<Option target="CAL_proj"/>
+		</Unit>
+		<Unit filename="/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -43,9 +43,10 @@ int manyDestinies(Agency& agency);
 int getTime(Destiny &d, int id);
 
 
-
 int checkOperatingCities(Agency& agency);
 int checkPossibleDestinies(Agency& agency);
 int checkAccommodations(Agency& agency);
+
+bool checkDays(std::vector<Date> &dates, int days);
 
 #endif /* INTERFACE_H_ */

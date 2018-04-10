@@ -481,6 +481,7 @@ int flightReservation2(Agency& agency){
 
 	if(d.size() == 1){
 		std::cout << "We are sorry but we can't find any flights for your destination..." << std::endl;
+		return 0;
 	}else{
 		if(d.size() > 2){
 			std::cout << "In order to optimize the cost, we have chosen this route: \n" << std::endl;
@@ -633,9 +634,11 @@ int flightReservation3(Agency& agency){
 	loadEdgesCost(agency);
 	int totalTime = 0, totalDays;
 	int travelTime = 0;
+	int check;
 
 	std::cout << "Please enter the total of days you wish to travel:";
 	std::cin >> totalDays;
+	check = totalDays;
 
 	std::cout <<"Please enter the city where you want to begin your travel:";
 	std::cin >> origin;
@@ -702,11 +705,51 @@ int flightReservation3(Agency& agency){
 		origin = stops[i];
 	}
 
-	std::cout << "\nAlso these are the accommodations whose price is the best!\n" << std::endl;
-	for(size_t i = 0; i < accommodations.size(); i++){
-		std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
+	bool ok = checkDays(dates, check);
+
+	if(ok){
+		std::cout << "\nAlso these are the accommodations whose price is the best!\n" << std::endl;
+		for(size_t i = 0; i < accommodations.size(); i++){
+			std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
+		}
+	}else{
+		std::cout << "Sorry but the flight days don't match your travel time... Try again." << std::endl;
+		return 0;
 	}
+
 	return 0;
+}
+
+
+bool checkDays(std::vector<Date> &dates, int days){
+	Date init = Date(dates[0].getDay(), dates[0].getMonth());
+
+	Date end = Date(dates[(dates.size()-1)].getDay(), dates[(dates.size()-1)].getMonth());
+
+	if(init.getMonth() == end.getMonth()){
+
+		int d = end.getDay() - init.getDay();
+		if(d > days) return false;
+		else return true;
+
+	}else{
+
+		int months = end.getMonth() - init.getMonth();
+
+		if(months >= 2){
+
+			int d = 31-init.getDay() + end.getDay() + 31*months;
+			if(d > days) return false;
+			else return true;
+
+		}else{
+
+			int d = 31-init.getDay() + end.getDay();
+			if(d > days) return false;
+			else return true;
+
+		}
+	}
 }
 
 
