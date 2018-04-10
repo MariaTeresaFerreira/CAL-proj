@@ -1,3 +1,0 @@
-/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/Teresa/Escola/FEUP/2º Ano/2º Semestre/CAL/CAL-proj/cmake-build-debug/CMakeFiles/CAL_proj.dir
