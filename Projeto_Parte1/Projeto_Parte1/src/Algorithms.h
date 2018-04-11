@@ -59,24 +59,35 @@ void bubbleSortDname(std::vector<Destiny> destiny_aux);
  */
 void selectionSortD(std::vector<Destiny> &d_aux);
 
+/*
+ * @brief BinarySearch that returns a destiny
+ * @param d vector of destinies
+ * @param x string with the name of the city we want to find
+ */
 Destiny binarySearchD(const std::vector<Destiny> d, std::string x);
 
+
+/*
+ * @brief Simple algorithm search that returns a destiny
+ * @param d vector of destinies
+ * @param x string with the name of the city we want to find
+ */
 Destiny searchCityName(const std::vector<Destiny> d, std::string x);
 
+/*
+ * @brief Resturns if it is possible to go from a city to other city
+ * @param d vector of possible destinies
+ * @param d destiny that will be checked
+ */
 bool isPossibleDestiny(const std::vector<PossibleDestinies*> p, Destiny d);
 
+
+/*
+ * @brief Simple algorithm to search an accommodation
+ * @param d Destiny
+ * @param x string with the name of the accommodation we want to find
+ */
 Accommodation searchAccommodation(Destiny& d, std::string acc);
 
-void flush();
-/*
-void removeReps(std::vector<Destiny>& d){
-	for(auto i = d.begin() ; i !=d.end(); i++){
-		if(i->getCityName() == (i+1)->getCityName()){
-			d.erase(i);
-			i--;
-		}
-	}
-}
-*/
 #endif /* SRC_ALGORITHMS_H_ */
 

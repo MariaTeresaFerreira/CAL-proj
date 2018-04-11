@@ -8,6 +8,10 @@
 #ifndef SRC_LIBRARIES_H_
 #define SRC_LIBRARIES_H_
 
+/**
+ * @brief Libraries that we might need in some header files.
+ */
+
 #include <iostream>
 #include <string.h>
 #include <vector>

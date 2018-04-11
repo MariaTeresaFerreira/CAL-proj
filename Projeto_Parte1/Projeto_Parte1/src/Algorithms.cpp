@@ -132,9 +132,3 @@ bool isPossibleDestiny(const std::vector<PossibleDestinies*> p, Destiny d){
 	}
 	return false;
 }
-
-void flush(){
-	for(int i = 0 ; i <= 20; i++){
-		std::cin.ignore('\n');
-	}
-}

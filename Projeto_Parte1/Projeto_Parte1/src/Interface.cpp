@@ -214,6 +214,7 @@ bool mapMenu(Agency& agency){
 			break;
 		case 2:
 			instruction = closeMap1();
+			break;
 		case 0:
 			return false;
 		case -1:
@@ -274,7 +275,7 @@ void updateMap(Agency& agency){ //FUNÇÃO QUE USO PARA CONSTRUIR O GRAPHO, graphv
 
 	 for(size_t i = 0; i < agency.getDestinies().size(); i++){
 
-			 for(size_t k = 0; k < agency.getDestinies()[i].getNumberOfDest(); k++){
+			 for(int k = 0; k < agency.getDestinies()[i].getNumberOfDest(); k++){
 
 				 int destinyID = agency.getDestinies()[i].getAllDestinies()[k]->getID();
 				 gv->addEdge(idDest, agency.getDestinies()[i].getID(), destinyID, EdgeType::DIRECTED);
@@ -439,7 +440,12 @@ int flightReservation1(Agency& agency){
 
 	int cost = acc->getPrice(dateInit);
 
-	std::cout << "Your accommodation will cost :" << cost << " euros" << std::endl;
+	std::cout << "In order to optimize the cost, we have chosen this accommodation: \n";
+	std::cout << acc->getName() << std::endl;
+	std::cout << "Accommodation base price: " << acc->getBasePrice() << std::endl;
+	std::cout << *acc->getPeriod(dateInit) << std::endl;
+
+	std::cout << "Your accommodation will cost :" << cost << " €" << std::endl;
 
 	int id;
 	std::cout << "Client ID:";
@@ -528,7 +534,9 @@ int flightReservation2(Agency& agency){
 	Accommodation *acc = dest.cheapestAccommodation(dateInit);
 
 	std::cout << "In order to optimize the cost, we have chosen this accommodation: \n";
-	std::cout << *acc << std::endl;
+	std::cout << acc->getName() << std::endl;
+	std::cout << "Accommodation base price: " << acc->getBasePrice() << std::endl;
+	std::cout << *acc->getPeriod(dateInit) << std::endl;
 
 	int cost = acc->getPrice(dateInit);
 
@@ -536,7 +544,7 @@ int flightReservation2(Agency& agency){
 		cost += getCost(d[j], d[j+1].getID());
 	}
 
-	std::cout << "The accommodation and flights will cost you " << cost << " euros" << std::endl;
+	std::cout << "The accommodation and flights will cost you " << cost << " €" << std::endl;
 
 	int id;
 	std::cout << "Client ID:";
@@ -626,7 +634,7 @@ int manyDestinies(Agency& agency){
 		std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
 	}
 
-	std::cout << "\nThe total cost for all the flights is: " << totalCost << std::endl;
+	std::cout << "\nThe total cost for all the flights is: " << totalCost << " €" << std::endl;
 
 	int id;
 	std::cout << "Client ID:";
@@ -735,7 +743,7 @@ int flightReservation3(Agency& agency){
 		return 0;
 	}
 
-	std::cout << "\nThe total cost for all the flights is: " << totalCost << std::endl;
+	std::cout << "\nThe total cost for all the flights is: " << totalCost << " €" << std::endl;
 
 	int id;
 	std::cout << "Client ID:";
