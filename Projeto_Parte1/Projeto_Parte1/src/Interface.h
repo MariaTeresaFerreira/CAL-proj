@@ -41,6 +41,7 @@ int flightReservation2(Agency& agency);
 int flightReservation3(Agency& agency);
 int manyDestinies(Agency& agency);
 int getTime(Destiny &d, int id);
+int getCost(Destiny &d, int id);
 
 
 int checkOperatingCities(Agency& agency);

@@ -310,9 +310,6 @@ void openMapRoute(std::vector<Destiny> &d){
 	gvRoute->rearrange();
 }
 
-
-
-
 /*
  * Menu where the clients will be able to get their reservation
  */
@@ -444,7 +441,6 @@ int flightReservation1(Agency& agency){
 	int cost = acc->getPrice(dateInit);
 
 	std::cout << "Your accommodation will cost :" << cost << " euros" << std::endl;
-	//DONE AGORA É SO ACABAR AS OUTRAS E SE ME DER NOS CORNOS FAÇO UMA CLASSE RESERVAS
 
 	return 0;
 }
@@ -531,7 +527,11 @@ int flightReservation2(Agency& agency){
 
 	int cost = acc->getPrice(dateInit);
 
-	std::cout << "The accommodation will cost you " << cost << " euros" << std::endl;
+	for(size_t j = 0; j < (d.size()-1); j++){
+		cost += getCost(d[j], d[j+1].getID());
+	}
+
+	std::cout << "The accommodation and flights will cost you " << cost << " euros" << std::endl;
 
 	return 0;
 }
@@ -544,6 +544,7 @@ int manyDestinies(Agency& agency){
 	std::vector<Destiny> allDests;
 	std::vector<Accommodation*> accommodations;
 	std::vector<Date> dates;
+	int totalCost = 0;
 
 	std::cout <<"\nYou have selected the option to multiple destinies.\n" << std::endl;
 	std::cout <<"Please enter the city where you want to begin your travel:";
@@ -570,6 +571,10 @@ int manyDestinies(Agency& agency){
 
 		agency.dijkstra(takeOff);
 		std::vector<Destiny> d = agency.getPath(takeOff, nextStop);
+
+		for(size_t j = 0; j < (d.size()-1); j++){
+			totalCost += getCost(d[j], d[j+1].getID());
+		}
 
 		std::cout << "For the flight number " << (i+1) << " choose a date." << std::endl;
 		std::cout << "Day: ";
@@ -610,21 +615,13 @@ int manyDestinies(Agency& agency){
 		std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
 	}
 
+	std::cout << "\nThe total cost for all the flights is: " << totalCost << std::endl;
 
 	return 0;
 }
 
 
-
-
-//////////////////////////////////////
-			//ACABAR//
-//////////////////////////////////////
 int flightReservation3(Agency& agency){
-
-	//A ideia desta função é receber vários destinos que o cliente quer, depois retornar o caminho mais rápido em termos de custo e no fim chamar uma função que receba o vector
-	// de getPahth(origin, destiny) e ir ao vector da agency "Destinies" e retirar os tempos de viagem do vetor Possible destinies.
-	// se o tempo form menor ou igual ao tempo referido pelo cliente, avança, senão tem de sugerir outras viagens.
 
 	std::string origin, dest;
 	int n, i = 1;
@@ -635,6 +632,7 @@ int flightReservation3(Agency& agency){
 	int totalTime = 0, totalDays;
 	int travelTime = 0;
 	int check;
+	int totalCost = 0;
 
 	std::cout << "Please enter the total of days you wish to travel:";
 	std::cin >> totalDays;
@@ -665,6 +663,9 @@ int flightReservation3(Agency& agency){
 
 		std::vector<Destiny> d = agency.getPath(takeOff, nextStop);
 
+		for(size_t j = 0; j < (d.size()-1); j++){
+			totalCost += getCost(d[j], d[j+1].getID());
+		}
 
 		for(size_t j = 0; j < (d.size()-1); j++){
 			totalTime += getTime(d[j], d[j+1].getID());
@@ -708,7 +709,7 @@ int flightReservation3(Agency& agency){
 	bool ok = checkDays(dates, check);
 
 	if(ok){
-		std::cout << "\nAlso these are the accommodations whose price is the best!\n" << std::endl;
+		std::cout << "\nThese are the accommodations whose price is the best for the destinies you chose!\n" << std::endl;
 		for(size_t i = 0; i < accommodations.size(); i++){
 			std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
 		}
@@ -716,6 +717,8 @@ int flightReservation3(Agency& agency){
 		std::cout << "Sorry but the flight days don't match your travel time... Try again." << std::endl;
 		return 0;
 	}
+
+	std::cout << "\nThe total cost for all the flights is: " << totalCost << std::endl;
 
 	return 0;
 }
@@ -762,29 +765,14 @@ int getTime(Destiny &d, int id){
 	return 0;
 }
 
+int getCost(Destiny &d, int id){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	for(size_t i = 0; i < d.getAllDestinies().size(); i++){
+		if(d.getAllDestinies()[i]->getID() == id)
+			return d.getAllDestinies()[i]->getPrice();
+	}
+	return 0;
+}
 
 /*
  * Here we have the functions that let the client know the destinies they can travel to, the cost of the flight and the time spent.
