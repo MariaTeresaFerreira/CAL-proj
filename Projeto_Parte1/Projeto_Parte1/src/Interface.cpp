@@ -197,10 +197,10 @@ bool mapMenu(Agency& agency){
 	int option;
 
 	while(option != -1){
-		std::cout <<"\n\tMAP:" << std::endl;
-		std::cout << "\t1 - Open full map" << std::endl;
-		std::cout << "\t2 - Close map" << std::endl;
-		std::cout << "\t0 - Go back" << std::endl;
+		std::cout <<"\n\tMAP MENU:" << std::endl;
+		std::cout << "\t 1 - Open full map" << std::endl;
+		std::cout << "\t 2 - Close map" << std::endl;
+		std::cout << "\t 0 - Go back" << std::endl;
 		std::cout << "\t-1 - Exit program.\n" << std::endl;
 
 		int instruction;
@@ -398,7 +398,7 @@ int flightReservation1(Agency& agency){
 
 	//ACCOMMODATION
 
-	std::cout << "Now pick one of the accommodations available at the chosen destiny:\n\n " << std::endl;
+	std::cout << "Now pick one of the accommodations available at the chosen destiny:\n " << std::endl;
 
 	for(size_t i = 0; i < dest.getAllAccommodation().size(); i++){
 		std::cout << *dest.getAllAccommodation()[i];
@@ -411,7 +411,6 @@ int flightReservation1(Agency& agency){
 	std::getline(std::cin, accommodation);
 
 	Accommodation *acc = dest.findByName(accommodation);
-	//std::cout << *acc << std::endl;
 
 	//DATE
 
@@ -441,6 +440,12 @@ int flightReservation1(Agency& agency){
 	int cost = acc->getPrice(dateInit);
 
 	std::cout << "Your accommodation will cost :" << cost << " euros" << std::endl;
+
+	int id;
+	std::cout << "Client ID:";
+	std::cin >> id;
+	cin.ignore();
+	exportInfoFlight1(id, accommodation, cost, dest);
 
 	return 0;
 }
@@ -533,6 +538,12 @@ int flightReservation2(Agency& agency){
 
 	std::cout << "The accommodation and flights will cost you " << cost << " euros" << std::endl;
 
+	int id;
+	std::cout << "Client ID:";
+	std::cin >> id;
+	cin.ignore();
+	exportInfoFlight1(id, acc->getName(), cost, dest);
+
 	return 0;
 }
 
@@ -616,6 +627,12 @@ int manyDestinies(Agency& agency){
 	}
 
 	std::cout << "\nThe total cost for all the flights is: " << totalCost << std::endl;
+
+	int id;
+	std::cout << "Client ID:";
+	std::cin >> id;
+	cin.ignore();
+	exportInfoFlight2(id, accommodations, stops, totalCost);
 
 	return 0;
 }
@@ -719,6 +736,12 @@ int flightReservation3(Agency& agency){
 	}
 
 	std::cout << "\nThe total cost for all the flights is: " << totalCost << std::endl;
+
+	int id;
+	std::cout << "Client ID:";
+	std::cin >> id;
+	cin.ignore();
+	exportInfoFlight2(id, accommodations, stops, totalCost);
 
 	return 0;
 }
