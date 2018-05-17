@@ -53,3 +53,9 @@ Spring
 18
 300
 2
+5
+Schonbrunn Palace
+Hofburg
+Belvedere
+St. Stephen's Cathedral
+Vienna City hall

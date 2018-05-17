@@ -90,3 +90,9 @@ Spring
 12
 500
 6
+5
+Acropolis of Athens
+Parthenon
+Syntagma Square
+Temple of Olympian Zeus
+Erachtheion

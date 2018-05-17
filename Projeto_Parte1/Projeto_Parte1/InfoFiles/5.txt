@@ -81,3 +81,9 @@ Spring
 6
 500
 2
+5
+Big Ben
+London Eye
+Tower of London
+Madame Tussauds London
+Buckingham Palace

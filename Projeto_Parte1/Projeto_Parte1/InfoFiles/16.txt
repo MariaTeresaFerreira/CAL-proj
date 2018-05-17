@@ -67,3 +67,9 @@ Spring
 19
 350
 3
+5
+Kremlin
+Red Square
+Bolshoi Theatre Moscow
+Tretyakov Galley
+Kremlin Armoury

@@ -73,3 +73,9 @@ Spring
 7
 330
 2
+5
+Eiffel Tower
+The Louvre
+Arc de Triomphe
+Dysneyland Paris
+Notre-Dame de Paris

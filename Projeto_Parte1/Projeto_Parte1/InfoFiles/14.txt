@@ -62,3 +62,9 @@ Spring
 20
 700
 10
+5
+Guiness Storehouse
+Dublin Castle
+Phoenix Park
+Powerscourt Estate
+St. Stephen's Green

@@ -56,3 +56,9 @@ Spring
 13
 100
 2
+5
+Vasa
+Skansen
+Stockholm Palace
+Nobel Museum
+Storkyrkan
