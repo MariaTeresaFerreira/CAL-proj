@@ -61,10 +61,10 @@ bool clientsMenu(Agency& agency){
 
 	while(option != -1){
 		std::cout <<"\n\tCLIENTS\n" << std::endl;
-		std::cout << "\t1 - Check client" << std::endl;
-		std::cout << "\t2 - Add client" << std::endl;
-		std::cout << "\t3 - Check all clients" << std::endl;
-		std::cout << "\t0 - Go back" << std::endl;
+		std::cout << "\t 1 - Check client" << std::endl;
+		std::cout << "\t 2 - Add client" << std::endl;
+		std::cout << "\t 3 - Check all clients" << std::endl;
+		std::cout << "\t 0 - Go back" << std::endl;
 		std::cout << "\t-1 - Exit program.\n" << std::endl;
 
 		int instruction;

@@ -50,6 +50,8 @@ vector<Destiny> Agency::getPath(Destiny& origin, Destiny& dest){
 	return this->graph.getPath(origin, dest);
 }
 
+//Algoritmos de procura aproximada.
+
 Destiny Agency::numStringMatchingI(std::string toSearch){
 	int found = 0;
 	for(auto v : graph.getVertexSet()){
@@ -75,28 +77,51 @@ Destiny Agency::numStringMatchingC(std::string toSearch){
 	Destiny nonExistant;
 	return nonExistant;
 }
-/*
 
-float Agency::numApproximateStringMatchingI(Graph<Destiny> graph,string toSearch) {
+std::vector<std::string> Agency::numApproximateStringMatchingI(string toSearch) {
 	int counter = 0, n = 0;
+	float charChange, compare;
+	std::vector<std::string> found;
 
-	for(auto v : graph.vertexSet){
-		for(int i = 0; i < v->getInfo().getInterestPoints().size(); i++){
-			counter += editDistance(v->getInfo().getInterestPoints()[i], toSearch);
+	for(auto v : graph.getVertexSet()){
+		for(unsigned int i = 0; i < v->getInfo().getInterestPoints().size(); i++){
+
+			counter = editDistance(v->getInfo().getInterestPoints()[i], toSearch);
 			n++;
+
+			charChange = (float)counter/n;
+			compare = 0.7*(v->getInfo().getInterestPoints()[i].length());
+
+			if(charChange < compare){
+				found.push_back(v->getInfo().getInterestPoints()[i]);
+			}
+
+			n = 0;
 		}
 	}
-	return (float)counter/n;
+	return found;
 }
 
-float Agency::numApproximateStringMatchingC(Graph<Destiny> graph, string toSearch){
+
+std::vector<std::string> Agency::numApproximateStringMatchingC(string toSearch){
 	int counter = 0, n = 0;
+	float charChange, compare;
+	std::vector<std::string> found;
 
-	for(auto v : graph.vertexSet){
-		counter += editDistance(v->getInfo().getCityName(), toSearch);
+	for(auto v : graph.getVertexSet()){
+		counter = editDistance(v->getInfo().getCityName(), toSearch);
 		n++;
+		charChange = (float)counter/n;
+		compare = 0.7*(v->getInfo().getCityName().length());
+
+		if(charChange < compare){
+			found.push_back(v->getInfo().getCityName());
+		}
+
+		n = 0;
 	}
-	return (float)counter/n;
+
+	return found;
 }
-*/
+
 

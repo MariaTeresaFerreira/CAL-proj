@@ -102,7 +102,7 @@ public:
 	 * @param dest
 	 * @return
 	 */
-	vector<Destiny> getPath(Destiny& origin, Destiny& dest);
+	std::vector<Destiny> getPath(Destiny& origin, Destiny& dest);
 
 	Destiny numStringMatchingI(std::string toSearch);
 
