@@ -133,45 +133,39 @@ bool isPossibleDestiny(const std::vector<PossibleDestinies*> p, Destiny d){
 	return false;
 }
 
-void preKMP(string pattern, int f[]){
+std::vector<int> preKMP(string pattern){
 	int m = pattern.length();
-	f[0] = -1;
-	int k = 0;
-
-	for(int i = 1; i < m; i++) {
-		k = f[i-1];
-		while(k >=0){
-			if(pattern[k] == pattern[i-1])
-				break;
-			else
-				k = f[k];
+	vector<int> prefix(m);
+	prefix[0] = -1;
+	int k = -1;
+	for(int q = 1; q < m; q++){
+		while(k > -1 && pattern[k+1] != pattern[q]) {
+			k = prefix[k];
 		}
-		f[i] = k+1;
+		if(pattern[k+1] == pattern[q])
+			k = k+1;
+		prefix[q] = k;
 	}
+	return prefix;
 }
 
 int kmpMatcher(string text, string pattern) {
-	int n = text.length();
-	int m = pattern.length();
-	int f[m];
-	int counter = 0;
-	preKMP(pattern, f);
-	int k = -1;
-
-	for (int i = 0; i < n; i++)
-	{
-		while(k >= 0 && pattern[k + 1] != text[i]) {
-			k = f[k];
+	int num = 0;
+		int n = text.length();
+		int m = pattern.length();
+		vector<int> prefix = preKMP(pattern);
+		int q = -1;
+		for(int i = 0; i < n; i++){
+			while(q > -1 && pattern[q+1]!=text[i])
+				q = prefix[q];
+			if(pattern[q+1] == text[i])
+				q++;
+			if(q == m-1){
+				num++;
+				q = prefix[q];
+			}
 		}
-		if (pattern[k + 1] == text[i])
-			k++;
-		if (k == m - 1)
-		{
-			counter++;
-			k = f[k];
-		}
-	}
-	return counter;
+		return num;
 }
 
 int editDistance(string pattern, string text) {

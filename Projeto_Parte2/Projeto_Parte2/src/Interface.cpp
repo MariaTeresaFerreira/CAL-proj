@@ -14,7 +14,13 @@ GraphViewer *gvRoute;
 
 void initMenu(Agency& agency){
 	bool exit = false;
-
+/*
+	std::vector<std::string> d;
+	d = agency.numApproximateStringMatchingC("os");
+	for(int i = 0 ; i < d.size(); i++){
+		std::cout << d[i] << std::endl;
+	}
+*/
 	while(!exit){
 		int option = showMenu(agency);
 
@@ -47,7 +53,7 @@ int showMenu(Agency& agency){
 	std::cout << "\t 3 - Choose your trip" << std::endl;
 	std::cout << "\t 4 - Operating cities and possible destinies" << std::endl;
 	std::cout << "\t-1 - Quit" << std::endl;
-	std::cout << "Please insert a valid option:";
+	std::cout << "\nPlease insert a valid option:";
 
 	std::cin >> option;
 	return option;
@@ -61,10 +67,10 @@ bool clientsMenu(Agency& agency){
 
 	while(option != -1){
 		std::cout <<"\n\tCLIENTS\n" << std::endl;
-		std::cout << "\t 1 - Check client" << std::endl;
-		std::cout << "\t 2 - Add client" << std::endl;
-		std::cout << "\t 3 - Check all clients" << std::endl;
-		std::cout << "\t 0 - Go back" << std::endl;
+		std::cout << "\t1 - Check client" << std::endl;
+		std::cout << "\t2 - Add client" << std::endl;
+		std::cout << "\t3 - Check all clients" << std::endl;
+		std::cout << "\t0 - Go back" << std::endl;
 		std::cout << "\t-1 - Exit program.\n" << std::endl;
 
 		int instruction;
@@ -246,7 +252,7 @@ int openMap(Agency& agency){
 	std::cout << "\t Opening our map . . . " << std::endl;
 
 	gv->setBackground("background_small.jpg");
-	gv->createWindow(1280, 835);
+	gv->createWindow(1280, 835); //mudar conforme resolução da imagem.
 	gv->defineVertexColor("red");
 	gv->defineEdgeColor("red");
 
@@ -255,7 +261,7 @@ int openMap(Agency& agency){
 	return 0;
 }
 
-void updateMap(Agency& agency){
+void updateMap(Agency& agency){ //FUNÇÃO QUE USO PARA CONSTRUIR O GRAPHO, graphviewer
 	int id, coordx, coordy;
 	std::string name;
 
@@ -291,7 +297,7 @@ void openMapRoute(std::vector<Destiny> &d){
 
 	gvRoute = new GraphViewer(1280, 835, false);
 	gvRoute->setBackground("background_small.jpg");
-	gvRoute->createWindow(1280, 835);
+	gvRoute->createWindow(1280, 835); //mudar conforme resolução da imagem.
 	gvRoute->defineVertexColor("yellow");
 	gvRoute->defineEdgeColor("red");
 
@@ -304,7 +310,7 @@ void openMapRoute(std::vector<Destiny> &d){
 		if(j == (d.size()-1)) break;
 		else{
 			Sleep(1000);
-			gvRoute->addEdge(j, j, (j+1), EdgeType::DIRECTED);
+			gvRoute->addEdge(j, j, (j+1), EdgeType::DIRECTED);//queria usar sleep para se perceber o trajeto
 			gvRoute->rearrange();
 		}
 	}
@@ -362,38 +368,63 @@ bool flightMenu(Agency& agency){
 
 int flightReservation1(Agency& agency){
 	std::string origin, destiny, option;
+	int op;
 
 	loadEdgesTime(agency);
 
 	//PARTIDA
 	std::cout << "Please insert the city where you want to begin your travel:";
-	std::cout << std::endl;
-	std::cin.ignore();
-	std::getline(std::cin, origin);
+	std::cout << std::endl;;
+	std::cin >> origin;
+
+	//Testa se encontra com o algoritmo exato
+	std::vector<std::string> org;
+	org = agency.numStringMatchingC(origin);
+
+	//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+	if(org.size()==0){
+		org = agency.numApproximateStringMatchingC(origin);
+		if(org.size() >= 1){
+			std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+			for(int i = 0 ; i < org.size(); i++){
+				std::cout << "[" << i << "] :" << org[i] << endl;
+			}
+			std::cout << "Now please select one of the options:";
+			std::cin >> op;
+			std::cin.clear();
+
+			origin = org[op];
+		}
+	}
 
 	//CHEGADA
 	std::cout << "Please insert the city where you want to end your travel:";
 	std::cout << std::endl;
-	std::cin.ignore();
-	std::getline(std::cin, destiny);
+	std::cin >> destiny;
 	std::cout << "\n\n";
 
-	Destiny init = agency.numStringMatchingC(origin);
+	//Testa se encontra com o algoritmo exato
+	org = agency.numStringMatchingC(destiny);
 
-	if(init.getID() == 0){
-		init = agency.numStringMatchingI(origin);
+	//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+	if(org.size()==0){
+		org = agency.numApproximateStringMatchingC(destiny);
+		if(org.size() >= 1){
+			std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+			for(int i = 0 ; i < org.size(); i++){
+				std::cout << "[" << i << "] :" << org[i] << endl;
+			}
+			std::cout << "Now please select one of the options:";
+			std::cin >> op;
+			std::cin.clear();
+
+			destiny = org[op];
+		}
 	}
 
-	Destiny dest = agency.numStringMatchingC(destiny);
-
-	if(dest.getID() == 0){
-		dest = agency.numStringMatchingI(destiny);
-	}
-
-	if(dest.getID() == 0 || init.getID() == 0){
-		std::cout << "Invalid locations, please try again." << std::endl;
-		return 0;
-	}
+	//RESGISTAR PARTIDA E CHEGADA PARA MAIS TARDE VER SE É POSSÍVEL.
+	Destiny init = searchCityName(agency.getDestinies(), origin);
+	Destiny dest = searchCityName(agency.getDestinies(), destiny);
 
 	agency.dijkstra(init);
 	std::vector<Destiny> d = agency.getPath(init, dest);
@@ -404,7 +435,7 @@ int flightReservation1(Agency& agency){
 			if(i == d.size() -1){
 				std::cout << d[i].getCityName() << std::endl;
 			}else{
-				std::cout << d[i].getCityName() << "---->";
+				std::cout << d[i].getCityName() << "---->"; //Se houver tempo, mudar isto para uma representação no graphviewer
 			}
 		}
 	}
@@ -422,7 +453,7 @@ int flightReservation1(Agency& agency){
 	std::string accommodation;
 	std::cout << "Choose one:";
 	std::cout << std::endl;
-	//std::cin.ignore();
+	std::cin.ignore();
 	std::getline(std::cin, accommodation);
 
 	Accommodation *acc = dest.findByName(accommodation);
@@ -454,9 +485,11 @@ int flightReservation1(Agency& agency){
 
 	int cost = acc->getPrice(dateInit);
 
+	std::cout << "In order to optimize the cost, we have chosen this accommodation: \n";
 	std::cout << acc->getName() << std::endl;
 	std::cout << "Accommodation base price: " << acc->getBasePrice() << std::endl;
 	std::cout << *acc->getPeriod(dateInit) << std::endl;
+
 	std::cout << "Your accommodation will cost :" << cost << " €" << std::endl;
 
 	int id;
@@ -472,6 +505,7 @@ int flightReservation2(Agency& agency){
 
 	std::string origin, destiny, option;
 	std::vector<std::string> stops;
+	int op;
 
 	loadEdgesCost(agency);
 
@@ -483,32 +517,56 @@ int flightReservation2(Agency& agency){
 	//PARTIDA
 	std::cout << "Please insert the city where you want to begin your travel:";
 	std::cout << std::endl;
-	std::cin.ignore();
-	std::getline(std::cin, origin);
+	std::cin >> origin;
+
+	//Testa se encontra com o algoritmo exato
+	std::vector<std::string> org;
+	org = agency.numStringMatchingC(origin);
+
+	//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+	if(org.size()==0){
+		org = agency.numApproximateStringMatchingC(origin);
+		if(org.size() >= 1){
+			std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+			for(int i = 0 ; i < org.size(); i++){
+				std::cout << "[" << i << "] :" << org[i] << endl;
+			}
+			std::cout << "Now please select one of the options:";
+			std::cin >> op;
+			std::cin.clear();
+
+			origin = org[op];
+		}
+	}
 
 	//CHEGADA
 	std::cout << "Please insert the city where you want to end your travel:";
 	std::cout << std::endl;
-	std::cin.ignore();
-	std::getline(std::cin, destiny);
+	std::cin >> destiny;
 	std::cout << "\n\n";
 
-	Destiny init = agency.numStringMatchingC(origin);
+	//Testa se encontra com o algoritmo exato
+	org = agency.numStringMatchingC(destiny);
 
-	if(init.getID() == 0){
-		init = agency.numStringMatchingI(origin);
+	//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+	if(org.size()==0){
+		org = agency.numApproximateStringMatchingC(destiny);
+		if(org.size() >= 1){
+			std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+			for(int i = 0 ; i < org.size(); i++){
+				std::cout << "[" << i << "] :" << org[i] << endl;
+			}
+			std::cout << "Now please select one of the options:";
+			std::cin >> op;
+			std::cin.clear();
+
+			destiny = org[op];
+		}
 	}
 
-	Destiny dest = agency.numStringMatchingC(destiny);
-
-	if(dest.getID() == 0){
-		dest = agency.numStringMatchingI(destiny);
-	}
-
-	if(dest.getID() == 0 || init.getID() == 0){
-		std::cout << "Invalid locations, please try again." << std::endl;
-		return 0;
-	}
+	//RESGISTAR PARTIDA E CHEGADA PARA MAIS TARDE VER SE É POSSÍVEL.
+	Destiny init = searchCityName(agency.getDestinies(), origin);
+	Destiny dest = searchCityName(agency.getDestinies(), destiny);
 
 	agency.dijkstra(init);
 	std::vector<Destiny> d = agency.getPath(init, dest);
@@ -524,7 +582,7 @@ int flightReservation2(Agency& agency){
 				if(i == d.size() -1){
 					std::cout << d[i].getCityName() << std::endl;
 				}else{
-					std::cout << d[i].getCityName() << "--->";
+					std::cout << d[i].getCityName() << "---->"; //Se houver tempo, mudar isto para uma representação no graphviewer
 				}
 			}
 		}
@@ -586,7 +644,7 @@ int flightReservation2(Agency& agency){
 int manyDestinies(Agency& agency){
 
 	std::string origin, dest;
-	int n, i = 1;
+	int n, i = 1, op;
 	std::vector<Destiny> allDests;
 	std::vector<Accommodation*> accommodations;
 	std::vector<Date> dates;
@@ -594,18 +652,58 @@ int manyDestinies(Agency& agency){
 
 	std::cout <<"\nYou have selected the option to multiple destinies.\n" << std::endl;
 	std::cout <<"Please enter the city where you want to begin your travel:";
-	std::cin.ignore();
-	std::getline(std::cin, origin);
+	std::cin >> origin;
+
+	//Testa se encontra com o algoritmo exato
+	std::vector<std::string> org;
+	org = agency.numStringMatchingC(origin);
+
+	//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+	if(org.size()==0){
+		org = agency.numApproximateStringMatchingC(origin);
+		if(org.size() >= 1){
+			std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+			for(int i = 0 ; i < org.size(); i++){
+				std::cout << "[" << i << "] :" << org[i] << endl;
+			}
+			std::cout << "Now please select one of the options:";
+			std::cin >> op;
+			std::cin.clear();
+
+			origin = org[op];
+		}
+	}
 
 	std::cout <<"\nEnter the number of cities you want to visit:"; std::cin >> n;
 	std::cout <<"\nNow please enter the name of the cities you want to visit:" << std::endl;
 
+	std::vector<string> org1;
 	std::vector<string> stops;
 	while(i <= n){
 		std::cout << i << ":";
-		std::cin.ignore();
-		std::getline(std::cin, dest);
+		std::cin >> dest;
+
+		//Testa se encontra com o algoritmo exato
+		org1 = agency.numStringMatchingC(dest);
+
+		//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+		if(org1.size()==0){
+			org1 = agency.numApproximateStringMatchingC(dest);
+			if(org1.size() >= 1){
+				std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+				for(int i = 0 ; i < org1.size(); i++){
+					std::cout << "[" << i << "] :" << org1[i] << endl;
+				}
+				std::cout << "Now please select one of the options:";
+				std::cin >> op;
+				std::cin.clear();
+
+				dest = org1[op];
+			}
+		}
+
 		stops.push_back(dest);
+		cin.ignore();
 		dest.clear();
 		i++;
 	}
@@ -613,19 +711,8 @@ int manyDestinies(Agency& agency){
 	for(size_t i = 0; i < stops.size(); i++){
 		int day, month;
 
-		Destiny takeOff = agency.numStringMatchingC(origin);
-		if(takeOff.getID() == 0){
-			takeOff = agency.numStringMatchingI(origin);
-		}
-		Destiny nextStop = agency.numStringMatchingC(stops[i]);
-		if(nextStop.getID() == 0){
-			nextStop = agency.numStringMatchingI(stops[i]);
-		}
-		if(nextStop.getID() == 0 || takeOff.getID() == 0){
-			std::cout << "Invalid locations, please try again." << std::endl;
-			return 0;
-		}
-
+		Destiny takeOff = searchCityName(agency.getDestinies(), origin);
+		Destiny nextStop = searchCityName(agency.getDestinies(), stops[i]);
 
 		agency.dijkstra(takeOff);
 		std::vector<Destiny> d = agency.getPath(takeOff, nextStop);
@@ -655,7 +742,7 @@ int manyDestinies(Agency& agency){
 
 	openMapRoute(allDests);
 
-	std::cout << "\n\nIn order to optimize the cost of your journey we planned these flights for you: " << std::endl;
+	std::cout << "\n\n\nIn order to optimize the cost of your journey we planned these flights for you: " << std::endl;
 	for(size_t i = 0 ; i < allDests.size(); i++){
 		if(i == (allDests.size()-1)){
 			std::cout << allDests[i].getCityName() << std::endl;
@@ -667,13 +754,12 @@ int manyDestinies(Agency& agency){
 				std::cout << allDests[i].getCityName() << "--->";
 		}
 	}
-/*
- * Problemas em escrever o nome da cidade, resolver no fim
+
 	std::cout << "\nAlso these are the accommodations whose price is the best!\n" << std::endl;
 	for(size_t i = 0; i < accommodations.size(); i++){
 		std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
 	}
-*/
+
 	std::cout << "\nThe total cost for all the flights is: " << totalCost << " €" << std::endl;
 
 	int id;
@@ -689,7 +775,7 @@ int manyDestinies(Agency& agency){
 int flightReservation3(Agency& agency){
 
 	std::string origin, dest;
-	int n, i = 1;
+	int n, i = 1, op;
 	std::vector<Destiny> allDests;
 	std::vector<Accommodation*> accommodations;
 	std::vector<Date> dates;
@@ -704,8 +790,27 @@ int flightReservation3(Agency& agency){
 	check = totalDays;
 
 	std::cout <<"Please enter the city where you want to begin your travel:";
-	std::cin.ignore();
-	std::getline(std::cin, origin);
+	std::cin >> origin;
+
+	//Testa se encontra com o algoritmo exato
+	std::vector<std::string> org;
+	org = agency.numStringMatchingC(origin);
+
+	//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+	if(org.size()==0){
+		org = agency.numApproximateStringMatchingC(origin);
+		if(org.size() >= 1){
+			std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+			for(int i = 0 ; i < org.size(); i++){
+				std::cout << "[" << i << "] :" << org[i] << endl;
+			}
+			std::cout << "Now please select one of the options:";
+			std::cin >> op;
+			std::cin.clear();
+
+			origin = org[op];
+		}
+	}
 
 	std::cout <<"\nEnter the number of cities you want to visit:"; std::cin >> n;
 	std::cout <<"\nNow please enter the name of the cities you want to visit:" << std::endl;
@@ -713,27 +818,38 @@ int flightReservation3(Agency& agency){
 	std::vector<string> stops;
 	while(i <= n){
 		std::cout << i << ":";
-		std::cin.ignore();
-		std::getline(std::cin, dest);
-		stops.push_back(dest);;
+		std::cin >> dest;
+
+		//Testa se encontra com o algoritmo exato
+		std::vector<string> org1;
+		org1 = agency.numStringMatchingC(dest);
+
+		//Caso nao encontre o vector é de size 0, logo recorremos á string aproximada
+		if(org1.size()==0){
+			org1 = agency.numApproximateStringMatchingC(dest);
+			if(org1.size() >= 1){
+				std::cout << "We couldn't find any city with that name, please check these options. " << std::endl;
+				for(int i = 0 ; i < org1.size(); i++){
+					std::cout << "[" << i << "] :" << org1[i] << endl;
+				}
+				std::cout << "Now please select one of the options:";
+				std::cin >> op;
+				std::cin.clear();
+
+				dest = org1[op];
+			}
+		}
+
+		stops.push_back(dest);
+		cin.ignore();
 		dest.clear();
 		i++;
 	}
 
 	for(size_t i = 0; i < stops.size(); i++){
 
-		Destiny takeOff = agency.numStringMatchingC(origin);
-		if(takeOff.getID() == 0){
-			takeOff = agency.numStringMatchingI(origin);
-		}
-		Destiny nextStop = agency.numStringMatchingC(stops[i]);
-		if(nextStop.getID() == 0){
-			nextStop = agency.numStringMatchingI(stops[i]);
-		}
-		if(nextStop.getID() == 0 || takeOff.getID() == 0){
-			std::cout << "Invalid locations, please try again." << std::endl;
-			return 0;
-		}
+		Destiny takeOff = searchCityName(agency.getDestinies(), origin);
+		Destiny nextStop = searchCityName(agency.getDestinies(), stops[i]);
 
 		agency.dijkstra(takeOff);
 
@@ -765,9 +881,7 @@ int flightReservation3(Agency& agency){
 
 	for(size_t i = 0; i < stops.size(); i++){
 		int day, month;
-		Destiny nextStop = agency.numStringMatchingC(stops[i]);
-		if(nextStop.getID() == 0)
-			nextStop = agency.numStringMatchingI(stops[i]);
+		Destiny nextStop = searchCityName(agency.getDestinies(), stops[i]);
 
 		std::cout << "For the flight number " << (i+1) << " choose a date." << std::endl;
 		std::cout << "Day: ";
@@ -789,7 +903,7 @@ int flightReservation3(Agency& agency){
 	if(ok){
 		std::cout << "\nThese are the accommodations whose price is the best for the destinies you chose!\n" << std::endl;
 		for(size_t i = 0; i < accommodations.size(); i++){
-			std::cout /*<< stops[i] erro aqui, come a primeira letra xD*/ << ":" << accommodations[i]->getName() << std::endl;
+			std::cout << stops[i] << ":" << accommodations[i]->getName() << std::endl;
 		}
 	}else{
 		std::cout << "Sorry but the flight days don't match your travel time... Try again." << std::endl;
@@ -806,6 +920,7 @@ int flightReservation3(Agency& agency){
 
 	return 0;
 }
+
 
 bool checkDays(std::vector<Date> &dates, int days){
 	Date init = Date(dates[0].getDay(), dates[0].getMonth());
@@ -967,6 +1082,8 @@ int checkAccommodations(Agency& agency){
  * Main function, calls the import files functions and prepares
  * the structure.
  */
+
+
 
 void import_info(Agency& agency){
 	importClients(agency);

@@ -1,3 +1,13 @@
 2/Athens/Royal Olympic Hotel/921
 3/Belgrade/Hyatt Regency Belgrade/1106
 4/The Vintage/Drayson Mews/Lisbon/ondon/280
+0/Lisbon/The Vintage/130
+4/The Vintage/Grand Hotel Via Veneto/Luz/ome/590
+2/Drayson Mews/The Vintage/Big Ben/stadio da Luz/490
+4/Drayson Mews/Ararat park Hyatt/London/Moscow/1440
+1877569467/Lisbon/The Vintage/130
+4/Porto/The Yeatman/504
+5/London/Montcalm Royal London House/591
+4/HF Ipanema/Drayson Mews/Porto/London/900
+5/HF Ipanema/Ararat park Hyatt/Hotel Regina Louvre/Porto/Moscow/Paris/2060
+3/Ararat park Hyatt/Hotel Lilla Roberts/Moscow/Helsinki/500

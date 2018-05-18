@@ -90,7 +90,7 @@ bool isPossibleDestiny(const std::vector<PossibleDestinies*> p, Destiny d);
  */
 Accommodation searchAccommodation(Destiny& d, std::string acc);
 
-void preKMP(std::string pattern, int f[]);
+std::vector<int> preKMP(std::string pattern);
 int kmpMatcher(std::string text, std::string pattern);
 
 int editDistance(std::string pattern, std::string text);

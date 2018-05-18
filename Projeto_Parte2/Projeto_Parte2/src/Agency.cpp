@@ -52,30 +52,33 @@ vector<Destiny> Agency::getPath(Destiny& origin, Destiny& dest){
 
 //Algoritmos de procura aproximada.
 
-Destiny Agency::numStringMatchingI(std::string toSearch){
+std::vector<std::string> Agency::numStringMatchingI(std::string toSearch){
 	int found = 0;
+	std::vector<std::string> dest;
+
 	for(auto v : graph.getVertexSet()){
 		for(int i = 0; i < v->getInfo().getInterestPoints().size(); i++){
 
 			found = kmpMatcher(v->getInfo().getInterestPoints()[i], toSearch);
-			if(found == 1) return v->getInfo();
-
+			if(found == 1){
+				dest.push_back(v->getInfo().getInterestPoints()[i]);
+			}
 		}
 	}
 
-	Destiny nonExistant;
-	return nonExistant;
+
+	return dest;
 }
 
-Destiny Agency::numStringMatchingC(std::string toSearch){
+std::vector<std::string> Agency::numStringMatchingC(std::string toSearch){
 	int found = 0;
+	std::vector<std::string> dest;
+
 	for(auto v : graph.getVertexSet()){
 		found = kmpMatcher(v->getInfo().getCityName(), toSearch);
-		if(found == 1) return v->getInfo();
+		if(found == 1) dest.push_back(v->getInfo().getCityName());
 	}
-
-	Destiny nonExistant;
-	return nonExistant;
+	return dest;
 }
 
 std::vector<std::string> Agency::numApproximateStringMatchingI(string toSearch) {

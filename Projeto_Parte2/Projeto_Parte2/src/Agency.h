@@ -104,11 +104,11 @@ public:
 	 */
 	std::vector<Destiny> getPath(Destiny& origin, Destiny& dest);
 
-	Destiny numStringMatchingI(std::string toSearch);
+	std::vector<std::string> numStringMatchingI(std::string toSearch);
 
 	std::vector<std::string> numApproximateStringMatchingI(string toSearch);
 
-	Destiny numStringMatchingC(std::string toSearch);
+	std::vector<std::string> numStringMatchingC(std::string toSearch);
 
 	std::vector<std::string> numApproximateStringMatchingC(string toSearch);
 };

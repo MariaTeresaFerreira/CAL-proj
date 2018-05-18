@@ -190,4 +190,8 @@ int checkAccommodations(Agency& agency);
  */
 bool checkDays(std::vector<Date> &dates, int days);
 
+std::string tryApproximateC(std::string origin, Agency& agency);
+
+std::string tryApproximateI(std::string origin, Agency& agency);
+
 #endif /* INTERFACE_H_ */
