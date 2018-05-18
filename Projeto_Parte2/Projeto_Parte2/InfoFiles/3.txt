@@ -1,0 +1,92 @@
+Madrid
+220,660
+5
+Hotel Villa Magna
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+The Principal Madrid
+4
+Summer
+21-06/22-09
+200
+Winter
+23-12/2-01
+180
+Autumn
+3-09/20-12
+100
+Spring
+3-01/20-06
+100
+Hotel Puerta America
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+Wellington Madrid
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+Westin Palace Hotel
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+4
+1
+100
+3
+2
+100
+4
+4
+100
+5
+5
+220
+6
+5
+Royal Palace of Madrid
+Santiago Bernabeu
+Plaza de Cibeles
+Las Ventas
+Museo Nacional Del Prado

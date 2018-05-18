@@ -1,0 +1,75 @@
+Moscow
+1000,340
+4
+Metropol
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+Hilton Moscow Leningradskaya
+4
+Summer
+21-06/22-09
+200
+Winter
+23-12/2-01
+180
+Autumn
+3-09/20-12
+100
+Spring
+3-01/20-06
+100
+Ararat park Hyatt
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+Petroff Palace Boutique Hotel
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+3
+12
+300
+4
+15
+400
+4
+19
+350
+3
+5
+Kremlin
+Red Square
+Bolshoi Theatre Moscow
+Tretyakov Galley
+Kremlin Armoury

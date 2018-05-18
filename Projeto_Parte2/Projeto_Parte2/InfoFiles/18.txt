@@ -1,0 +1,61 @@
+Belgrade
+590,620
+3
+Square Nine Hotel Belgrade
+4
+Summer
+21-06/22-09
+200
+Winter
+23-12/2-01
+180
+Autumn
+3-09/20-12
+100
+Spring
+3-01/20-06
+100
+Danube Beauty Apartment
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+Hyatt Regency Belgrade
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+3
+1
+600
+4
+16
+400
+3
+20
+100
+2
+5
+Belgrad Fortress
+Church of Saint Sava
+Nikola Tesla Museum
+Ada Ciganlija
+National Museum of Servia

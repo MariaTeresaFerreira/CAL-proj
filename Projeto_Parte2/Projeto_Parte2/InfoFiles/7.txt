@@ -1,0 +1,95 @@
+Rome
+510,650
+5
+Hotel Raphael
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+Rome Cavalieri
+4
+Summer
+21-06/22-09
+200
+Winter
+23-12/2-01
+180
+Autumn
+3-09/20-12
+100
+Spring
+3-01/20-06
+100
+Grand Hotel Via Veneto
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+La Griffe Roma
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+Hotel Majestic Roma
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+5
+20
+200
+3
+4
+190
+2
+8
+300
+2
+13
+240
+2
+18
+180
+1
+5
+Colosseum
+St. Peter's Basilica
+Trevi Fountain
+Sistine Chapel
+Castel Sant'Angelo

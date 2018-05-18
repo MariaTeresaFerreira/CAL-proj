@@ -1,0 +1,72 @@
+Brussels
+410,460
+4
+Warwick Brussels
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+Hotel Le Chatelain
+4
+Summer
+21-06/22-09
+200
+Winter
+23-12/2-01
+180
+Autumn
+3-09/20-12
+100
+Spring
+3-01/20-06
+100
+Sofitel Brussels Europe
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+Martin's Chateau Du Lac
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+2
+4
+100
+3
+7
+150
+1
+5
+Atomium
+Royal Palace of Brussels
+Grand Place
+Royal Museums of Fine Arts
+Magritte Museum

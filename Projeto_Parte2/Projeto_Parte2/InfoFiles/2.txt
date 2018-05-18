@@ -1,0 +1,78 @@
+Lisbon
+150,660
+4
+The Vintage
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+Tivoli Hotel
+4
+Summer
+21-06/22-09
+200
+Winter
+23-12/2-01
+180
+Autumn
+3-09/20-12
+100
+Spring
+3-01/20-06
+100
+Altis Grand Hotel
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+VIP Grand Lisboa
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Outono
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+4
+1
+80
+6
+3
+120
+7
+4
+180
+4
+5
+200
+3
+5
+Belem Tower
+Rossio Square
+25 de Abril Bridge
+Padrao dos Descobrimentos
+Estadio da Luz

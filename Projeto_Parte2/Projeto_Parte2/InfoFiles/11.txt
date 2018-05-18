@@ -1,0 +1,64 @@
+Stockholm
+600,260
+3
+Lydmar Hotel
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+Sheraton Stockholm Hotel
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+Hotel Diplomat Stockholm
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+4
+4
+400
+3
+7
+300
+3
+9
+200
+3
+13
+100
+2
+5
+Vasa
+Skansen
+Stockholm Palace
+Nobel Museum
+Storkyrkan

@@ -1,0 +1,50 @@
+Oslo
+530,280
+2
+The Thief
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+Lysebu Hotel
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+4
+6
+400
+5
+2
+600
+7
+8
+300
+3
+11
+100
+1
+5
+Vigeland Sculpture Park
+Oslofjord
+Viking Ship Museum
+Akershus Fortress
+Frogner Park

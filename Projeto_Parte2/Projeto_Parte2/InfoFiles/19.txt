@@ -1,0 +1,75 @@
+Ankara
+930,690
+4
+Latanya Hotel Ankara
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+Metropolitan Hotels Ankara
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+Crowne Plaza Ankara
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+Swissotel Ankara
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+3
+13
+500
+5
+15
+600
+5
+16
+800
+6
+5
+Anitkabir
+Museum of Anatolian
+Ankara Castle
+War of Independence
+State Art and Sculpture Museum

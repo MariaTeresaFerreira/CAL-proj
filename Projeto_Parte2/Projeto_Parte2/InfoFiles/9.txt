@@ -1,0 +1,64 @@
+Warsaw
+570,460
+3
+InterContinental Warszawa
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+Sofitel Warsaw Victoria
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+The Westin Warsaw
+4
+Summer
+21-06/22-09
+280
+Winter
+23-12/2-01
+250
+Autumn
+3-09/20-12
+150
+Spring
+3-01/20-06
+150
+4
+3
+300
+4
+6
+250
+3
+8
+100
+1
+11
+300
+3
+5
+Royal Castle Warsaw
+Wilanow Palace
+Warsaw Uprising Museum
+Lazienki Palace
+Copernicus Science Centre

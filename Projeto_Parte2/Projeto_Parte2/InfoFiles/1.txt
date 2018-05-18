@@ -1,0 +1,62 @@
+Porto
+170,600
+3
+HF Ipanema
+4
+Summer
+21-06/22-09
+100
+Winter
+23-12/2-01
+140
+Autumn
+3-09/20-12
+80
+Spring
+3-01/20-06
+80
+InterContinental
+4
+Summer
+21-06/22-09
+200
+Winter
+23-12/2-01
+180
+Autumn
+3-09/20-12
+100
+Spring
+3-01/20-06
+100
+The Yeatman
+4
+Summer
+21-06/22-09
+250
+Winter
+23-12/2-01
+200
+Autumn
+3-09/20-12
+140
+Spring
+3-01/20-06
+120
+4
+2
+80
+4
+3
+140
+3
+4
+160
+2
+5
+210
+3
+3
+Clerigos Church
+Estadio do Dragao
+Museu Serralves
