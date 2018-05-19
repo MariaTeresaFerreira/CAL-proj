@@ -110,7 +110,9 @@ public:
 
 	std::vector<std::string> numStringMatchingC(std::string toSearch);
 
-	std::vector<std::string> numApproximateStringMatchingC(string toSearch);
+	std::vector<std::string> numApproximateStringMatchingC(std::string toSearch);
+
+	std::string findCityIP(std::string ip);
 };
 
 

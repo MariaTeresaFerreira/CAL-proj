@@ -138,6 +138,8 @@ int flightReservation2(Agency& agency);
  */
 int flightReservation3(Agency& agency);
 
+int flightReservation4(Agency& agency);
+
 /**
  * @brief Handles the option of a client wanting to visit more than one city
  * @param agency
@@ -189,9 +191,5 @@ int checkAccommodations(Agency& agency);
  * @return true
  */
 bool checkDays(std::vector<Date> &dates, int days);
-
-std::string tryApproximateC(std::string origin, Agency& agency);
-
-std::string tryApproximateI(std::string origin, Agency& agency);
 
 #endif /* INTERFACE_H_ */

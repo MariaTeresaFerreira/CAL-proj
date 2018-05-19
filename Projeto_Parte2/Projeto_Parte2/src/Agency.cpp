@@ -127,4 +127,14 @@ std::vector<std::string> Agency::numApproximateStringMatchingC(string toSearch){
 	return found;
 }
 
+std::string Agency::findCityIP(std::string ip){
+	for(auto v : graph.getVertexSet()){
+		for(unsigned int i = 0; i < v->getInfo().getInterestPoints().size(); i++){
+			if(ip == v->getInfo().getInterestPoints()[i])
+				return v->getInfo().getCityName();
+		}
+	}
+	return "NULL";
+}
+
 
