@@ -57,7 +57,7 @@ std::vector<std::string> Agency::numStringMatchingI(std::string toSearch){
 	std::vector<std::string> dest;
 
 	for(auto v : graph.getVertexSet()){
-		for(int i = 0; i < v->getInfo().getInterestPoints().size(); i++){
+		for(unsigned int i = 0; i < v->getInfo().getInterestPoints().size(); i++){
 
 			found = kmpMatcher(v->getInfo().getInterestPoints()[i], toSearch);
 			if(found == 1){

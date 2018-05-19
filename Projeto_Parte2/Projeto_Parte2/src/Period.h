@@ -116,7 +116,7 @@ public:
 	friend std::ostream & operator <<(std::ostream &o, const Period &p){
 		o << "\tPeriod: " << p.name << std::endl;
 		o << "\tDuration: " << p.init << " until " << p.end << std::endl;
-		o << "\tAdditional price: " << p.price << std::endl;
+		o << "\tAdditional price: " << p.price << " €" << std::endl;
 		return o;
 	}
 };

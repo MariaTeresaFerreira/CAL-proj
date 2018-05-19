@@ -78,8 +78,8 @@ public:
      */
 	friend std::ostream & operator <<(std::ostream &o, const Accommodation &a){
 		o << "The accommodation name is:" << a.name << std::endl;
-		o << "It has a base price of: " << a.basePrice << std::endl;
-		o << "All the seasons: " << std::endl;
+		o << "It has a base price of: " << a.basePrice << " €" << std::endl;
+		o << "All the seasons:\n" << std::endl;
 
 		for(size_t i = 0; i < a.periods.size(); i++){
 			o << "\t" << (*a.periods[i]) << std::endl;

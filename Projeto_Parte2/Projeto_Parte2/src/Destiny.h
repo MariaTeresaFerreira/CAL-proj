@@ -167,8 +167,8 @@ public:
 	 */
 	friend std::ostream& operator <<(std::ostream& o, const Destiny &d){
 
-		o << "ID: " << d.ID << std::endl;
-		o << "City: " << d.cityName << std::endl;
+		o << "\tID: " << d.ID << std::endl;
+		o << "\tCity: " << d.cityName << std::endl;
 
 		return o;
 	}
