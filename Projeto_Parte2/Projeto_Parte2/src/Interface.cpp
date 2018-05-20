@@ -402,6 +402,9 @@ int flightReservation1(Agency& agency){
 			std::cin.clear();
 
 			origin = org[op];
+		}else if(org.size() == 0){
+			std::cout << "We didn't find any city with the given name, try again." << std::endl;
+			return 0;
 		}
 	}
 
@@ -436,6 +439,9 @@ int flightReservation1(Agency& agency){
 			std::cin.clear();
 
 			destiny = org[op];
+		}else if(org.size() == 0){
+			std::cout << "We didn't find any city with the given name, try again." << std::endl;
+			return 0;
 		}
 	}
 
@@ -560,6 +566,9 @@ int flightReservation2(Agency& agency){
 			std::cin.clear();
 
 			origin = org[op];
+		}else if(org.size() == 0){
+			std::cout << "We didn't find any city with the given name, try again." << std::endl;
+			return 0;
 		}
 	}
 
@@ -594,6 +603,9 @@ int flightReservation2(Agency& agency){
 			std::cin.clear();
 
 			destiny = org[op];
+		}else if(org.size() == 0){
+			std::cout << "We didn't find any city with the given name, try again." << std::endl;
+			return 0;
 		}
 	}
 
@@ -712,6 +724,9 @@ int manyDestinies(Agency& agency){
 			std::cin.clear();
 
 			origin = orgaux[op];
+		}else if(orgaux.size() == 0){
+			std::cout << "We didn't find any city with the given name, try again." << std::endl;
+			return 0;
 		}
 	}
 
@@ -753,6 +768,9 @@ int manyDestinies(Agency& agency){
 				std::cin.clear();
 
 				dest = org1aux[op];
+			}else if(org1aux.size() == 0){
+				std::cout << "We didn't find any city with the given name, try again." << std::endl;
+				return 0;
 			}
 		}
 
@@ -875,6 +893,9 @@ int flightReservation3(Agency& agency){
 			std::cin.clear();
 
 			origin = orgaux[op];
+		}else if(orgaux.size() == 0){
+			std::cout << "We didn't find any city with the given name, try again." << std::endl;
+			return 0;
 		}
 	}
 
@@ -916,6 +937,9 @@ int flightReservation3(Agency& agency){
 				std::cin.clear();
 
 				dest = org1aux[op];
+			}else if(org1aux.size() == 0){
+				std::cout << "We didn't find any city with the given name, try again." << std::endl;
+				return 0;
 			}
 		}
 
@@ -1049,6 +1073,9 @@ int flightReservation4(Agency& agency){
 			std::cin.clear();
 
 			origin = orgaux[op];
+		}else if(orgaux.size() == 0){
+			std::cout << "We didn't find any city with the given name, try again." << std::endl;
+			return 0;
 		}
 	}
 
@@ -1090,6 +1117,9 @@ int flightReservation4(Agency& agency){
 				std::cin.clear();
 
 				dest = org1aux[op];
+			}else if(org1aux.size() == 0){
+				std::cout << "We didn't find any city with the given name, try again." << std::endl;
+				return 0;
 			}
 		}
 

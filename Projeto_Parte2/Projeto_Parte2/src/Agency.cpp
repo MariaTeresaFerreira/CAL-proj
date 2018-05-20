@@ -93,7 +93,7 @@ std::vector<std::string> Agency::numApproximateStringMatchingI(string toSearch) 
 			n++;
 
 			charChange = (float)counter/n;
-			compare = 0.7*(v->getInfo().getInterestPoints()[i].length());
+			compare = 0.8*(v->getInfo().getInterestPoints()[i].length());
 
 			if(charChange < compare){
 				found.push_back(v->getInfo().getInterestPoints()[i]);
